@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    //private Rigidbody2D rb;
     public float speed;
 
-
+    [SerializeField] private GameObject Bullet;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private float knockdown;
     private bool isHit = false;
@@ -16,14 +15,23 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        //rb = GetComponent<Rigidbody2D>();
+       
     }
-
  
     private void Update()
     {
         movement();
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
+    }
+    private void Shoot()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(Bullet, transform.position, Quaternion.identity);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
