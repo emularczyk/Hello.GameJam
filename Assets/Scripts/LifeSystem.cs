@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LifeSystem : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class LifeSystem : MonoBehaviour
     [SerializeField] private Image heartEmpty1;
     [SerializeField] private Image heartEmpty2;
     [SerializeField] private Image heartEmpty3;
+    [SerializeField] private Image deathScreenIm;
+    [SerializeField] private TextMeshProUGUI youHave;
+    [SerializeField] private TextMeshProUGUI Failed;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +45,9 @@ public class LifeSystem : MonoBehaviour
         {
             heartFull1.enabled = false;
             heartEmpty1.enabled = true;
+            deathScreenIm.enabled = true;
+            youHave.enabled = true;
+            Failed.enabled = true;
         }
     }
 }
