@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public float speed;
 
-    private Score score;
+    public Score score;
     [SerializeField] private int points;
 
     //private int receivedDamage; //musi siê odnosiæ do ataku gracza
@@ -37,7 +37,6 @@ public class Enemy : MonoBehaviour
     {
         if (isHit == false)
         {
-            print("obra¿enia");
             life--;
             // life -= receivedDamage;
             if (life < 1)
