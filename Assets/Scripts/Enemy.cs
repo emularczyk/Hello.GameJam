@@ -6,16 +6,18 @@ public class Enemy : MonoBehaviour
 {
     public float speed;
 
+    private Score score;
+    [SerializeField] private int points;
+
     //private int receivedDamage; //musi siê odnosiæ do ataku gracza
     private bool isHit = false;
 
-    [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private int life;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        score = GameObject.Find("GameManager").GetComponent<Score>();
     }
 
     // Update is called once per frame
@@ -35,12 +37,15 @@ public class Enemy : MonoBehaviour
     {
         if (isHit == false)
         {
+            print("obra¿enia");
             life--;
             // life -= receivedDamage;
             if (life < 1)
             {
+                score.UpdateScore(points);
                 Destroy(this.gameObject);
             }
         }
     }
+
 }

@@ -185,5 +185,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  sprite: {fileID: 0}
+  points: 50
   life: 3

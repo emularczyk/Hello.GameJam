@@ -27,7 +27,6 @@ public class LifeSystem : MonoBehaviour
 
     public void UpdateLife(int lives)
     {
-        print("loop start");
         if (lives == 2)
         {
             heartFull3.enabled = false;
