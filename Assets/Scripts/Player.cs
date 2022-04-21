@@ -36,19 +36,19 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")
-        {
-            Hurt();
-        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.tag == "Enemy")
+        {
+            Hurt();
+        }
         if (other.gameObject.tag == "EnemyBullet")
         {
             Hurt();
         }
-
     }
 
     public void Hurt()

@@ -13,6 +13,13 @@ public class GhostEnemy : Enemy
     // Update is called once per frame
     void Update()
     {
-        
+        Move();
+    }
+
+    private void Move()
+    {
+        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        if (transform.position.y < -5.61)
+            Destroy(this.gameObject);
     }
 }
