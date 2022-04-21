@@ -11,11 +11,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float knockdown;
     private bool isHit = false;
     [SerializeField] private int life; //as int
-    private Life lifeVisible; //total player life seen on canvas
+    [SerializeField] LifeSystem lifeVisible; //total player life seen on canvas
 
     private void Start()
     {
-       
+
     }
  
     private void Update()
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Bullet")
+        if (other.gameObject.tag == "EnemyBullet")
         {
             Hurt();
         }
