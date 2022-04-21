@@ -13,7 +13,6 @@ public class Score : MonoBehaviour
     {
         points += addPoints;
         score.text = points.ToString();
-        print("INFO SCORE: " + score);
     }
 
 }
