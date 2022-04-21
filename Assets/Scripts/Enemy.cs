@@ -1,3 +1,5 @@
+// komentarz, bo testujê ustawienia
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
