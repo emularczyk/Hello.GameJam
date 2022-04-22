@@ -86,7 +86,7 @@ public class Spawn : MonoBehaviour
     private void WaveTextDisplay(string name)
     {
         waveText.text = name;
-        //waveText.enabled = true;
+       // waveText.enabled = true;
         waveAnimation.SetTrigger("WaveAnim");
     }
 }

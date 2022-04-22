@@ -1629,7 +1629,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesList:
   - {fileID: 525912720078538362, guid: 106e07fb97f44eb4297f8bae076c9592, type: 3}
-  - {fileID: 274076109649742638, guid: 6f4be280dc848ce4db4b6d81e9c14c49, type: 3}
   waves:
   - name: Wave 1
     enemies:
@@ -1637,10 +1636,6 @@ MonoBehaviour:
       delay: 5
       howMany: 3
       frequency: 3
-    - typeOfEnemy: 1
-      delay: 1
-      howMany: 3
-      frequency: 2
     timeBetweenWaves: 10
   waveText: {fileID: 1554741037}
   waveAnimation: {fileID: 0}
