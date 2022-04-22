@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2773843520388411471}
   - component: {fileID: 6711959828723170773}
   - component: {fileID: 5390268160859410955}
+  - component: {fileID: 3830579004222280351}
   m_Layer: 0
   m_Name: GhostEnemy
   m_TagString: Enemy
@@ -189,3 +190,23 @@ MonoBehaviour:
   points: 50
   life: 3
   player: {fileID: 0}
+--- !u!95 &3830579004222280351
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8541614421346847557}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d6c16699fc7837943a99cf8abb549242, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
