@@ -190,6 +190,9 @@ MonoBehaviour:
   points: 50
   life: 3
   player: {fileID: 0}
+  freguency: 1
+  amplitude: 50
+  inverted: 0
 --- !u!95 &3830579004222280351
 Animator:
   serializedVersion: 4
