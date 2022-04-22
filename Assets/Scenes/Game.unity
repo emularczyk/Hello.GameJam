@@ -2870,41 +2870,50 @@ MonoBehaviour:
   - {fileID: 6473873992661440859, guid: 9c218d8d6706f0a46a19e24e45a98ac6, type: 3}
   - {fileID: 1052970637699721652, guid: 633f2e137b87f47478a2491f481a39c9, type: 3}
   - {fileID: 9140531270170691094, guid: 6fbb85dbe44c34b4f82c1d595b8a072b, type: 3}
+  - {fileID: 2082181480252661647, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
   waves:
   - name: Wave 1
     enemies:
     - delay: 0
-      frequency: 5
+      frequency: 1
       typeOfEnemy: 0
-      howMany: 10
+      howMany: 5
       isGroup: 0
-    - delay: 0
-      frequency: 5
+    - delay: 10
+      frequency: 1
       typeOfEnemy: 1
-      howMany: 10
+      howMany: 5
       isGroup: 0
-    - delay: 0
-      frequency: 5
+    - delay: 10
+      frequency: 1
       typeOfEnemy: 2
-      howMany: 10
+      howMany: 5
       isGroup: 0
-    - delay: 0
-      frequency: 5
+    - delay: 10
+      frequency: 1
       typeOfEnemy: 3
-      howMany: 10
+      howMany: 5
       isGroup: 0
     timeBetweenWaves: 20
   - name: Wave 2
     enemies:
-    - delay: 15
+    - delay: 4
       frequency: 1
       typeOfEnemy: 1
       howMany: 5
       isGroup: 1
     timeBetweenWaves: 5
+  - name: Wave 3
+    enemies:
+    - delay: 5
+      frequency: 1
+      typeOfEnemy: 9
+      howMany: 1
+      isGroup: 0
+    timeBetweenWaves: 5
   waveText: {fileID: 1554741037}
   waveAnimation: {fileID: 1554741039}
-  nextWave: 0
+  nextWave: 2
 --- !u!114 &2025159926
 MonoBehaviour:
   m_ObjectHideFlags: 0
