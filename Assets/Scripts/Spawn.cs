@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Spawn : MonoBehaviour
 {
@@ -25,11 +26,18 @@ public class Spawn : MonoBehaviour
     }
 
     [SerializeField] private Wave[] waves;
-    [SerializeField] private int nextWave; //do testowania wybranych fal
+    [SerializeField] private TextMeshProUGUI waveText;
+    [SerializeField] private Animator waveAnimation;
+
+    //do testowania wybranych fal
+    [SerializeField] private int nextWave;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        waveAnimation = GameObject.Find("WaveNr").GetComponent<Animator>();
+        waveText = GameObject.Find("WaveNr").GetComponent<TextMeshProUGUI>();
         StartCoroutine(WaveCounter(waves[nextWave]));
         if (GameObject.Find("Player") != null)
             player = GameObject.Find("Player").GetComponent<Player>();
@@ -45,6 +53,7 @@ public class Spawn : MonoBehaviour
     {
         int k = 0;
         nextWave++;
+        WaveTextDisplay(wwave.name);
         while (wwave.enemies.Count > k)
         {
             yield return new WaitForSeconds((wwave.enemies[k].delay));
@@ -72,5 +81,12 @@ public class Spawn : MonoBehaviour
             yield return new WaitForSeconds(frequency);
             i++;
         }
+    }
+
+    private void WaveTextDisplay(string name)
+    {
+        waveText.text = name;
+        //waveText.enabled = true;
+        waveAnimation.SetTrigger("WaveAnim");
     }
 }
