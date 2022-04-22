@@ -38,8 +38,12 @@ public class GhostEnemy : Enemy
 
     void moveCharacter(Vector2 direction)
     {
-        rb.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
+        /* Vector2 pos = transform.position;
+         pos.x -= speed * Time.fixedDeltaTime;
+         transform.position = pos;*/
 
+        rb.MovePosition((Vector2)transform.position + (direction * speed * Time.fixedDeltaTime));
+        
     }
 
 }
