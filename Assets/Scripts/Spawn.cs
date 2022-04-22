@@ -27,7 +27,8 @@ public class Spawn : MonoBehaviour
 
     [SerializeField] private Wave[] waves;
     [SerializeField] private TextMeshProUGUI waveText;
-    [SerializeField] private Animator waveAnimation;
+    [SerializeField] private Animator waveAnimation
+ ;
 
     //do testowania wybranych fal
     [SerializeField] private int nextWave;
@@ -86,7 +87,7 @@ public class Spawn : MonoBehaviour
     private void WaveTextDisplay(string name)
     {
         waveText.text = name;
-       // waveText.enabled = true;
-        waveAnimation.SetTrigger("WaveAnim");
+        waveAnimation.SetTrigger("WaveNr");
+
     }
 }

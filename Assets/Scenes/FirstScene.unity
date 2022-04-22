@@ -1210,7 +1210,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13, y: 82}
+  m_AnchoredPosition: {x: -13, y: 57}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1365350620
@@ -1297,7 +1297,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554741035}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -1629,16 +1629,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesList:
   - {fileID: 525912720078538362, guid: 106e07fb97f44eb4297f8bae076c9592, type: 3}
+  - {fileID: 274076109649742638, guid: 6f4be280dc848ce4db4b6d81e9c14c49, type: 3}
   waves:
   - name: Wave 1
     enemies:
     - typeOfEnemy: 0
-      delay: 5
-      howMany: 3
+      delay: 2
+      howMany: 10
       frequency: 3
-    timeBetweenWaves: 10
+    - typeOfEnemy: 1
+      delay: 2
+      howMany: 10
+      frequency: 3
+    timeBetweenWaves: 2
+  - name: Wave 2
+    enemies:
+    - typeOfEnemy: 0
+      delay: 2
+      howMany: 10
+      frequency: 2
+    - typeOfEnemy: 1
+      delay: 2
+      howMany: 10
+      frequency: 3
+    timeBetweenWaves: 5
   waveText: {fileID: 1554741037}
-  waveAnimation: {fileID: 0}
+  waveAnimation: {fileID: 1554741039}
   nextWave: 0
 --- !u!114 &2025159926
 MonoBehaviour:
