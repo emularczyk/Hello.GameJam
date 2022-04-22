@@ -704,11 +704,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  Bullet: {fileID: 1030548943191735513, guid: a532b2635e7baca47b9769f2fc5384a0, type: 3}
   sprite: {fileID: 402175035}
   knockdown: 0.2
   life: 3
   lifeVisible: {fileID: 2025159923}
+  attackTypes:
+  - {fileID: 6180742739982921605, guid: 4ecd2c64ece5251469cbcd65ed9677da, type: 3}
+  - {fileID: 4946166149182821856, guid: 3e16513d945b65945a1750dfa2209bea, type: 3}
+  - {fileID: 8887414840681361233, guid: 731a913f1b45e6543852a3016184dee2, type: 3}
+  - {fileID: 3186962620063984357, guid: 2373243c89934c044b7fff88933d89d2, type: 3}
+  - {fileID: 5354752963767579797, guid: b54c3ed16afe8284fa69b0ce466bcb87, type: 3}
+  - {fileID: 955852703671882884, guid: 09dab7d21d2ae60468c6f9d304f43341, type: 3}
 --- !u!60 &402175038
 PolygonCollider2D:
   m_ObjectHideFlags: 0
