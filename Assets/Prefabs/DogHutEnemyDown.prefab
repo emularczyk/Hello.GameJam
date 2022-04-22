@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 274076109649742639}
   - component: {fileID: 2116027971}
   m_Layer: 0
-  m_Name: DogHutEnemy
+  m_Name: DogHutEnemyDown
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,8 +167,10 @@ MonoBehaviour:
   life: 5
   bullet: {fileID: 2310918843784445011, guid: a784d7171fd4b904f9f201e6a4289490, type: 3}
   reload: 1
-  breakTime: 5
+  breakTime: 3
   booletSeries: 3
+  onSides: 0
+  invert: 0
   anim: {fileID: 2116027971}
 --- !u!95 &2116027971
 Animator:

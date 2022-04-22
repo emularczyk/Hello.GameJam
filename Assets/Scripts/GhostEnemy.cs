@@ -10,9 +10,12 @@ public class GhostEnemy : Enemy
     private Vector2 direction;
     private float ourY;
     private float ourX;
-    [SerializeField] private float freguency;
-    [SerializeField] private float amplitude;
-    [SerializeField] private bool inverted;
+    [SerializeField] private float sinFreguency;
+    [SerializeField] private float sinAmplitude;
+    [SerializeField] private bool sinInverted;
+    [SerializeField] private bool chase;
+    [SerializeField] private bool onSides;
+    [SerializeField] private bool invert;
 
     // Start is called before the first frame update
     void Awake()
@@ -28,13 +31,13 @@ public class GhostEnemy : Enemy
 
 
     // Update is called once per frame
-    void Update()
-    {
-    }
 
     private void FixedUpdate()
     {
-        attack();
+        if (chase)
+            attack();
+        else
+            moveDownSin();
     }
 
     void attack()
@@ -62,8 +65,8 @@ public class GhostEnemy : Enemy
     void moveDownSin()//freguency=1,amplitude=50
     {
         Vector2 pos = transform.position;
-        float sin = Mathf.Sin(pos.y* freguency)*amplitude;
-        if (inverted)
+        float sin = Mathf.Sin(pos.y* sinFreguency)*sinAmplitude;
+        if (sinInverted)
             sin *= -1;
         pos.x = ourX+sin* Time.fixedDeltaTime;
         pos.y -= speed * Time.fixedDeltaTime;

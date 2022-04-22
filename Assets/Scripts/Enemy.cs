@@ -21,9 +21,10 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        
+        if (11 < transform.position.y || transform.position.y < -6 || transform.position.x < -8 || transform.position.x > 8)
+            Destroy(this.gameObject);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

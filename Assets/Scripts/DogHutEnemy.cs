@@ -8,18 +8,27 @@ public class DogHutEnemy : Enemy
     [SerializeField] private float reload;
     [SerializeField] private float breakTime;
     public int booletSeries;
+    public bool onSides;
+    public bool invert;
 
     public Animator anim;
 
-
+    public DogHutEnemy(bool onSides,bool invert)
+    {
+        this.onSides = onSides;
+        this.invert = invert;
+    }
     // nie potrafiê odziedziczyæ i rozszerzyæ start()
     void Awake()
     {
         StartCoroutine(BreakWait());
+        if (invert)
+            speed *= -1;
     }
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         Move();
     }
 
@@ -31,10 +40,10 @@ public class DogHutEnemy : Enemy
     }
 
     private void Move()
-    {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
-        if (transform.position.y < -6)
-            Destroy(this.gameObject);
+    {   if(onSides)
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+        else
+            transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
 
     IEnumerator Fire(int number)
