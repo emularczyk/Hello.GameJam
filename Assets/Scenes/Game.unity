@@ -1628,7 +1628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemiesList:
-  - {fileID: 0}
+  - {fileID: 8541614421346847557, guid: 106e07fb97f44eb4297f8bae076c9592, type: 3}
   - {fileID: 274076109649742638, guid: 6f4be280dc848ce4db4b6d81e9c14c49, type: 3}
   waves:
   - name: Wave 1

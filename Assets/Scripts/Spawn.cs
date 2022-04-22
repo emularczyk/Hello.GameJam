@@ -37,8 +37,6 @@ public class Spawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        waveAnimation = GameObject.Find("WaveNr").GetComponent<Animator>();
-        waveText = GameObject.Find("WaveNr").GetComponent<TextMeshProUGUI>();
         StartCoroutine(WaveCounter(waves[nextWave]));
         if (GameObject.Find("Player") != null)
             player = GameObject.Find("Player").GetComponent<Player>();
@@ -62,7 +60,7 @@ public class Spawn : MonoBehaviour
             k++;
         }
         yield return new WaitForSeconds(wwave.timeBetweenWaves);
-        if (nextWave <= 10)
+        if (nextWave < waves.Length)
             StartCoroutine(WaveCounter(waves[nextWave]));
     }
 

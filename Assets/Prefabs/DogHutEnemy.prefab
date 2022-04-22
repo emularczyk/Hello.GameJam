@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 274076109649742637}
   - component: {fileID: 274076109649742636}
   - component: {fileID: 274076109649742639}
+  - component: {fileID: 2116027971}
   m_Layer: 0
   m_Name: DogHutEnemy
   m_TagString: Enemy
@@ -166,3 +167,26 @@ MonoBehaviour:
   life: 5
   bullet: {fileID: 2310918843784445011, guid: a784d7171fd4b904f9f201e6a4289490, type: 3}
   reload: 1
+  breakTime: 5
+  booletSeries: 3
+  anim: {fileID: 2116027971}
+--- !u!95 &2116027971
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274076109649742638}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71ffad820645ab2459b30f220458710f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
