@@ -8,7 +8,6 @@ TagManager:
   - EnemyBullet
   - Bullet
   - Explosion
-  - Undefined
   - Green
   - Blue
   layers:
