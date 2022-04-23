@@ -63,7 +63,7 @@ public class Spawn : MonoBehaviour
         }
         yield return new WaitForSeconds(3);
         isReady = true;
-        print("NumberOfEnemy:" + spawnedEnemies+" isReady"+ isReady);
+        //print("NumberOfEnemy:" + spawnedEnemies+" isReady"+ isReady); tester
         StartCoroutine(CheckReadyToNextWave()); 
     }
 
@@ -77,26 +77,6 @@ public class Spawn : MonoBehaviour
         }
         nextWave++;
     }
-
-/*
-    IEnumerator WaveCounter(Wave wave)
-    {
-        int k = 0;
-        nextWave++;
-        WaveTextDisplay(wave.name);
-        while (wave.enemies.Count > k)
-        {
-            yield return new WaitForSeconds((wave.enemies[k].delay));
-            StartCoroutine(SpawnEnemy(wave,k));
-            k++;
-        }
-        yield return new WaitForSeconds(wave.timeBetweenWaves);
-    }
-    */
-
-    // ----------------------do tego miejsca grzebalam----------------------------------
-
-
     IEnumerator SpawnEnemy(Wave wave,int iteration)
     {
         yield return new WaitForSeconds(wave.enemies[iteration].delay);
