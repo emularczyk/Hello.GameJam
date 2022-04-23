@@ -1687,7 +1687,7 @@ PrefabInstance:
     - target: {fileID: 7642908844737577704, guid: c00f491a39a77d846a7913b4c4b0b3b7, type: 3}
       propertyPath: attackTypes.Array.data[11]
       value: 
-      objectReference: {fileID: 955852703671882884, guid: 09dab7d21d2ae60468c6f9d304f43341, type: 3}
+      objectReference: {fileID: 7067180054092539284, guid: d520a7480fcc34e4d8f01ba34e3c2f55, type: 3}
     - target: {fileID: 7642908844737577705, guid: c00f491a39a77d846a7913b4c4b0b3b7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3027,7 +3027,7 @@ MonoBehaviour:
   bottomWall: -6
   rightWall: 11
   leftWall: -11
-  nextWave: 0
+  nextWave: 2
 --- !u!114 &2025159926
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,9 +12,5 @@ public class UpgrBullet4 : Bullet
         {
             Destroy(other.gameObject);
         }
-        if(rb.position.x > -9 || rb.position.x < 9 || rb.position.y > -5 || rb.position.y < 5)
-        {
-            Destroy(this.gameObject);
-        }
     }
 }

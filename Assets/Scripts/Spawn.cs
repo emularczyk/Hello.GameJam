@@ -72,7 +72,7 @@ public class Spawn : MonoBehaviour
             spawnShard(nextWave-1);
         }
         yield return new WaitForSeconds(3);
-      //  print("NumberOfEnemy:" + spawnedEnemies+" isReady"+ isReady+" isShardReady" + isReadyShard); test
+       // print("NumberOfEnemy:" + spawnedEnemies+" isReady"+ isReady+" isShardReady" + isReadyShard); //test
         StartCoroutine(CheckReadyToNextWave()); 
     }
     void spawnShard(int shurdNumber)

@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private GameObject Bullet;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private Rigidbody2D rb;
+    private Animator animCharger;
     private Animator anim;
 
 
@@ -31,17 +32,18 @@ public class Player : MonoBehaviour
     {
         lifeVisible = GameObject.Find("GameManager").GetComponent<LifeSystem>();
         StartCoroutine(chargeCannon());
-        anim = GameObject.Find("ChargedBoolets_0").GetComponent<Animator>();
-        anim.SetInteger("color",0);
+        animCharger = GameObject.Find("ChargedBoolets_0").GetComponent<Animator>();
+        animCharger.SetInteger("color",0);
+        anim=this.GetComponent<Animator>();
     }
 
     private void Update()
     {
         movement();
-        if (chage > 10 &&  Input.GetKeyDown(KeyCode.Space))
+        if (chage >= 10 &&  Input.GetKeyDown(KeyCode.Space))
         {
             Shoot(attackNumber+6);
-            anim.SetBool("Charged", false);
+            animCharger.SetBool("Charged", false);
             chage = 0;
         }
         else if( Input.GetKeyDown(KeyCode.Space))
@@ -54,7 +56,7 @@ public class Player : MonoBehaviour
     private void ChageBoolet(int type)
     {
         attackNumber= type;
-        anim.SetInteger("color", type);
+        animCharger.SetInteger("color", type);
     }
     private void Shoot(int attackType)
     {
@@ -68,10 +70,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(rechargeTime);
         chage++;
         if (chage >= 10)
-            anim.SetBool("Charged", true);
+            animCharger.SetBool("Charged", true);
         else
         {
-            anim.SetBool("Charged", false);
+            animCharger.SetBool("Charged", false);
         }
         StartCoroutine(chargeCannon());
     }
@@ -84,6 +86,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("RainbowShard"))
         {
             rainbowFragments++;
+            anim.SetTrigger("rainbow");
         }
     }
     public void Hurt()
@@ -103,6 +106,8 @@ public class Player : MonoBehaviour
     IEnumerator ResetPlayer()
     {
         isHit = true;
+        chage = 0;
+        animCharger.SetBool("Charged", false);
         sprite.enabled = false;
         yield return new WaitForSeconds(knockdown);
         sprite.enabled = true;
@@ -114,6 +119,7 @@ public class Player : MonoBehaviour
         sprite.enabled = false;
         yield return new WaitForSeconds(knockdown);
         sprite.enabled = true;
+        chage = 0;
         isHit = false;
     }
     void movement()
