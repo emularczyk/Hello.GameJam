@@ -7,7 +7,7 @@ public class GameVolume : MonoBehaviour
 {
     [SerializeField] Slider volumeSlider;
 
-    [SerializeField] Slider SfxSlider;
+    //[SerializeField] Slider SfxSlider;
 
 
     void Start()
