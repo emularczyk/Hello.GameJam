@@ -339,7 +339,7 @@ Transform:
   - {fileID: 1210403986}
   - {fileID: 72641509}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &203155871
 GameObject:
@@ -2866,6 +2866,8 @@ MonoBehaviour:
   - {fileID: 5092771761515112351, guid: ad9f3151e2193ce409e3b4bcf481a605, type: 3}
   - {fileID: 7557612200394901223, guid: 7793831e28534d74583e05f506a60e28, type: 3}
   - {fileID: 8541614421346847557, guid: 376eea654dde1fd44a235c9881559d10, type: 3}
+  - {fileID: 5092771761515112351, guid: ac5cc32b0017e14428f224f4f634b45c, type: 3}
+  - {fileID: 5092771761515112351, guid: 471ca09967b1267428341e06446db223, type: 3}
   waves:
   - name: Wave 1
     enemies:
@@ -2925,8 +2927,38 @@ MonoBehaviour:
       isGroup: 0
     timeBetweenWaves: 20
   - name: Wave 4
-    enemies: []
-    timeBetweenWaves: 20
+    enemies:
+    - delay: 0
+      frequency: 2.38
+      typeOfEnemy: 5
+      howMany: 10
+      spawnPoint: 14
+      isGroup: 0
+    - delay: 0
+      frequency: 2.38
+      typeOfEnemy: 5
+      howMany: 10
+      spawnPoint: 11
+      isGroup: 0
+    - delay: 3
+      frequency: 2.38
+      typeOfEnemy: 5
+      howMany: 10
+      spawnPoint: 17
+      isGroup: 0
+    - delay: 2
+      frequency: 2.38
+      typeOfEnemy: 6
+      howMany: 10
+      spawnPoint: 15
+      isGroup: 0
+    - delay: 2
+      frequency: 2.38
+      typeOfEnemy: 6
+      howMany: 10
+      spawnPoint: 16
+      isGroup: 0
+    timeBetweenWaves: 40
   - name: Wave 5
     enemies:
     - delay: 0
@@ -2954,7 +2986,7 @@ MonoBehaviour:
   bottomWall: -6
   rightWall: 11
   leftWall: -11
-  nextWave: 4
+  nextWave: 3
 --- !u!114 &2025159926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3146,7 +3178,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6439516498447423925, guid: 695f4b4b1e7141546a2b7fc31b133375, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6439516498447423925, guid: 695f4b4b1e7141546a2b7fc31b133375, type: 3}
       propertyPath: m_LocalPosition.x

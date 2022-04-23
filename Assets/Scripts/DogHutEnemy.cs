@@ -13,12 +13,6 @@ public class DogHutEnemy : Enemy
 
     public Animator anim;
 
-    public DogHutEnemy(bool onSides,bool invert)
-    {
-        this.onSides = onSides; // movement on sides
-        this.invert = invert; // from down to up (or from left to right, if you have on sides)
-    }
-
     void Awake()
     {
         StartCoroutine(BreakWait());
@@ -39,9 +33,9 @@ public class DogHutEnemy : Enemy
 
     private void Move()
     {   if(onSides)
-            transform.Translate(Vector2.left * speed*(invert?-1:1) * Time.deltaTime);
+            transform.Translate(Vector2.left * speed*(invert ? -1:1) * Time.deltaTime);
         else
-            transform.Translate(Vector2.down * speed * Time.deltaTime);
+            transform.Translate(Vector2.down * speed * (invert ? -1 : 1) * Time.deltaTime);
     }
 
     IEnumerator Fire(int number)
