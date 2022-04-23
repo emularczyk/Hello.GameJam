@@ -25,18 +25,21 @@ public class Player : MonoBehaviour
     {
 
     }
- 
+
     private void Update()
     {
         movement();
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            attackNumber++;
-            if (attackNumber > rainbowFragments)
-                    attackNumber = 0;
             Shoot(attackNumber);
         }
     }
+    private void ChageBoolet(int type)
+    {
+        attackNumber= type;
+    }
+
+
     private void Shoot(int attackNumber)
     {
         if (Input.GetKeyDown(KeyCode.Space))

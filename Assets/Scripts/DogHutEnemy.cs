@@ -32,7 +32,7 @@ public class DogHutEnemy : Enemy
 
     IEnumerator BreakWait()
     {
-        yield return new WaitForSeconds(breakTime+Random.RandomRange(0f,1f));
+        yield return new WaitForSeconds(breakTime+Random.Range(0,1));
         anim.SetBool("DogIn", true);
         StartCoroutine(Fire(booletSeries));
     }
