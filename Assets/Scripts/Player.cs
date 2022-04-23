@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     // Attack
     [SerializeField] private Bullet[] attackTypes;
-    [SerializeField] private int rainbowFragments = 0;
+    //[SerializeField] private int rainbowFragments = 0;
     int attackNumber = 0;
 
     private void Start()
@@ -38,19 +38,12 @@ public class Player : MonoBehaviour
     {
         attackNumber= type;
     }
-
-
     private void Shoot(int attackNumber)
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(attackTypes[attackNumber], transform.position, Quaternion.identity);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -64,7 +57,6 @@ public class Player : MonoBehaviour
             Hurt();
         }
     }
-
     public void Hurt()
     {
         if (isHit == false)
@@ -79,7 +71,6 @@ public class Player : MonoBehaviour
             lifeVisible.UpdateLife(life);
         }
     }
-
     IEnumerator ResetPlayer()
     {
         isHit = true;
@@ -96,7 +87,6 @@ public class Player : MonoBehaviour
         sprite.enabled = true;
         isHit = false;
     }
-
     void movement()
     {
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
