@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private GameObject Bullet;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private Rigidbody2D rb;
+    private Animator anim;
 
 
     private int chage;
@@ -30,6 +31,8 @@ public class Player : MonoBehaviour
     {
         lifeVisible = GameObject.Find("GameManager").GetComponent<LifeSystem>();
         StartCoroutine(chargeCannon());
+        anim = GameObject.Find("ChargedBoolets_0").GetComponent<Animator>();
+        anim.SetInteger("color",0);
     }
 
     private void Update()
@@ -38,6 +41,7 @@ public class Player : MonoBehaviour
         if (chage > 10 &&  Input.GetKeyDown(KeyCode.Space))
         {
             Shoot(attackNumber+6);
+            anim.SetBool("Charged", false);
             chage = 0;
         }
         else if( Input.GetKeyDown(KeyCode.Space))
@@ -50,6 +54,7 @@ public class Player : MonoBehaviour
     private void ChageBoolet(int type)
     {
         attackNumber= type;
+        anim.SetInteger("color", type);
     }
     private void Shoot(int attackType)
     {
@@ -62,6 +67,12 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(rechargeTime);
         chage++;
+        if (chage >= 10)
+            anim.SetBool("Charged", true);
+        else
+        {
+            anim.SetBool("Charged", false);
+        }
         StartCoroutine(chargeCannon());
     }
     private void OnTriggerEnter2D(Collider2D other)
