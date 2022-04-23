@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     private GameObject Bullet;
     [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private Rigidbody2D rb;
 
     // Life and Knockdown
     [SerializeField] private float knockdown;
@@ -93,19 +94,19 @@ public class Player : MonoBehaviour
     }
     void movement()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && rb.position.x > -8.4) //dziala
         {
             transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && rb.position.x < 8.4) 
         {
             transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
         }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && rb.position.y > -4.3)
         {
             transform.Translate(new Vector3(0, -speed  * Time.deltaTime, 0));
         }
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && rb.position.y < 4.3)
         {
             transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
         }
