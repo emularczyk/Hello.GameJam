@@ -188,10 +188,11 @@ MonoBehaviour:
   speed: 2
   score: {fileID: 0}
   points: 50
+  margines: 0.5
   life: 2
   player: {fileID: 0}
-  sinFreguency: 0
-  sinAmplitude: 0
+  sinFreguency: 1
+  sinAmplitude: 50
   sinInverted: 0
   chase: 0
   onSides: 0
