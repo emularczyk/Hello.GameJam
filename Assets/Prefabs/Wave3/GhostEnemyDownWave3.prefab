@@ -186,10 +186,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  freez: 0
   score: {fileID: 0}
   points: 50
   margines: 3
-  life: 2
+  life: 8
   player: {fileID: 0}
   sinFreguency: 1
   sinAmplitude: 80

@@ -2788,7 +2788,7 @@ MonoBehaviour:
     - delay: 2.5
       frequency: 3
       typeOfEnemy: 3
-      howMany: 10
+      howMany: 7
       spawnPoint: 11
       isGroup: 0
     timeBetweenWaves: 20

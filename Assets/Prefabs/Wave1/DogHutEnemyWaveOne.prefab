@@ -163,9 +163,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  freez: 0
   score: {fileID: 0}
   points: 100
-  life: 8
+  margines: 3
+  life: 20
   bullet: {fileID: 2310918843784445011, guid: a784d7171fd4b904f9f201e6a4289490, type: 3}
   reload: 1
   breakTime: 3

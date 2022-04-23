@@ -48,49 +48,34 @@ public class Spawn : MonoBehaviour
     void Start()
     {
         spawnedEnemies = 0;
-        WaveCounter(waves[nextWave]);
         //StartCoroutine(WaveCounter(waves[nextWave]));
         if (GameObject.Find("Player") != null)
             player = GameObject.Find("Player").GetComponent<Player>();
+        StartCoroutine(CheckReadyToNextWave());
     }
 
-    void Update()
+    IEnumerator CheckReadyToNextWave()
     {
-        if (!isReady)
+        if (isReady && nextWave < waves.Length && spawnedEnemies == 0)
         {
-            StartCoroutine(Wait());
+            isReady = false;
+            startNextWave();
         }
-        startNextWave();
-    }
-
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         isReady = true;
-        print(isReady);
+        print("NumberOfEnemy:" + spawnedEnemies+" isReady"+ isReady);
+        StartCoroutine(CheckReadyToNextWave()); 
     }
 
     void startNextWave()
     {
-        if (isReady == true && nextWave < waves.Length && spawnedEnemies == 0) // WORKED ON
-        {
-            //isReady = false;
-            WaveCounter(waves[nextWave]);
-            //StartCoroutine(WaveCounter(waves[nextWave]));
-        }
-    }
 
-    private void WaveCounter (Wave wave)
-    {
-        isReady = false;
-        int k = 0;
-        nextWave++;
-        WaveTextDisplay(wave.name);
-        while (wave.enemies.Count > k)
+        WaveTextDisplay((waves[nextWave].name));
+        for(int i=0;i< waves[nextWave].enemies.Count;i++)
         {
-            StartCoroutine(SpawnEnemy(wave, k));
-            k++;
+            StartCoroutine(SpawnEnemy(waves[nextWave], i));
         }
+        nextWave++;
     }
 
 /*
@@ -114,18 +99,15 @@ public class Spawn : MonoBehaviour
 
     IEnumerator SpawnEnemy(Wave wave,int iteration)
     {
-        spawnedEnemies++;
-        int i = 0;
-        Vector2 spawnPointPlace;
-        spawnPointPlace = spawnPointSwitch(wave.enemies[iteration].spawnPoint, wave.enemies[iteration].typeOfEnemy);
-        while (i < wave.enemies[iteration].howMany)
+        yield return new WaitForSeconds(wave.enemies[iteration].delay);
+        Vector2 spawnPointPlace = spawnPointSwitch(wave.enemies[iteration].spawnPoint, wave.enemies[iteration].typeOfEnemy);
+       for(int i=0;i < wave.enemies[iteration].howMany;i++)
         {
-
             Instantiate(EnemiesList[wave.enemies[iteration].typeOfEnemy], spawnPointPlace, Quaternion.identity);
+            spawnedEnemies++;
             yield return new WaitForSeconds(wave.enemies[iteration].frequency);
             if(!wave.enemies[iteration].isGroup)
                 spawnPointPlace = spawnPointSwitch(wave.enemies[iteration].spawnPoint, wave.enemies[iteration].typeOfEnemy);
-            i++;
         }
     }
 

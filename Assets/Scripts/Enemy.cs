@@ -28,7 +28,11 @@ public class Enemy : MonoBehaviour
     protected virtual void Update()
     {
         if  (transform.position.y > spawn.topWall + margines || transform.position.y < spawn.bottomWall - margines || transform.position.x < spawn.leftWall - margines || transform.position.x > spawn.rightWall + margines)
+        {
+            spawn.spawnedEnemies--;
             Destroy(this.gameObject);
+        }
+   
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
