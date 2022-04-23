@@ -715,6 +715,7 @@ MonoBehaviour:
   - {fileID: 3186962620063984357, guid: 2373243c89934c044b7fff88933d89d2, type: 3}
   - {fileID: 5354752963767579797, guid: b54c3ed16afe8284fa69b0ce466bcb87, type: 3}
   - {fileID: 955852703671882884, guid: 09dab7d21d2ae60468c6f9d304f43341, type: 3}
+  rainbowFragments: 2
 --- !u!60 &402175038
 PolygonCollider2D:
   m_ObjectHideFlags: 0
