@@ -9,6 +9,8 @@ TagManager:
   - Bullet
   - Explosion
   - Undefined
+  - Green
+  - Blue
   layers:
   - Default
   - TransparentFX

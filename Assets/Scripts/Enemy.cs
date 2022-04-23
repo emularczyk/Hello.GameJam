@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed;
-
+    [SerializeField] protected float freez=0;
     public Score score;
     [SerializeField] private int points;
     private Spawn spawn;
@@ -32,8 +32,14 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Bullet")
+        if (other.gameObject.tag == "Bullet" || other.gameObject.tag=="Green")
         {
+            Destroy(other.gameObject);
+            Hurt(other.gameObject.GetComponent<Bullet>().dmg);
+        }
+        if(other.gameObject.tag == "Blue")
+        {
+            freez += 1;
             Destroy(other.gameObject);
             Hurt(other.gameObject.GetComponent<Bullet>().dmg);
         }

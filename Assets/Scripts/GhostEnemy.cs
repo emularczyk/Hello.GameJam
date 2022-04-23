@@ -10,6 +10,7 @@ public class GhostEnemy : Enemy
     private Vector2 direction;
     private float ourY;
     private float ourX;
+   private Animator anim;
     [SerializeField] private float sinFreguency;
     [SerializeField] private float sinAmplitude;
     [SerializeField] private bool sinInverted;
@@ -24,6 +25,7 @@ public class GhostEnemy : Enemy
         {
             player = GameObject.Find("Player").GetComponent<Transform>();
         }
+        anim = this.GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody2D>();
         ourY = transform.position.y;
         ourX = transform.position.x;
@@ -34,10 +36,20 @@ public class GhostEnemy : Enemy
 
     private void FixedUpdate()
     {
-        if (chase)
-            attack();
-        else
-            moveDownSin();
+        if (freez==0)
+        {
+            if (chase)
+                attack();
+            else
+                moveDownSin();
+        }
+        if (!anim.GetBool("freez") && freez > 0)
+        {
+            anim.SetBool("freez", true);
+            StopAllCoroutines();
+            StartCoroutine(Unfreez());
+        }
+
     }
 
     void attack()
@@ -45,6 +57,12 @@ public class GhostEnemy : Enemy
         lokingForPlayer();
         rb.MovePosition((Vector2)transform.position + ( direction * speed * Time.fixedDeltaTime));
         
+    }
+    IEnumerator Unfreez()
+    {
+        yield return new WaitForSeconds(freez);
+        this.freez -= freez;
+        anim.SetBool("freez", false);
     }
     public void lokingForPlayer()
     {

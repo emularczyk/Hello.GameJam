@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-
+        lifeVisible = GameObject.Find("GameManager").GetComponent<LifeSystem>();
     }
 
     private void Update()

@@ -20,15 +20,30 @@ public class DogHutEnemy : Enemy
     // Update is called once per frame
     protected override void Update()
     {
-        base.Update();
-        Move();
+        if(freez==0)
+        {
+            base.Update();
+            Move();
+        }
+        if(!anim.GetBool("freez") && freez>0)
+        {
+            anim.SetBool("freez", true);
+            StopAllCoroutines();
+            StartCoroutine(Unfreez());
+        }
     }
-
     IEnumerator BreakWait()
     {
         yield return new WaitForSeconds(breakTime+Random.Range(0,1));
         anim.SetBool("DogIn", true);
         StartCoroutine(Fire(booletSeries));
+    }
+    IEnumerator Unfreez()
+    {
+        yield return new WaitForSeconds(freez);
+        this.freez -= freez;
+        anim.SetBool("freez", false);
+        StartCoroutine(BreakWait());
     }
 
     private void Move()
