@@ -2673,6 +2673,7 @@ GameObject:
   - component: {fileID: 2025159925}
   - component: {fileID: 2025159926}
   - component: {fileID: 2025159927}
+  - component: {fileID: 2025159928}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2855,7 +2856,7 @@ MonoBehaviour:
   bottomWall: -6
   rightWall: 11
   leftWall: -11
-  nextWave: 2
+  nextWave: 0
 --- !u!114 &2025159926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2883,6 +2884,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 1
+--- !u!114 &2025159928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025159922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87408f2ce51c5b749918eb5508bf46fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rainbowShard0: {fileID: 6766959590495164598, guid: 9502be1e97b496045b47e6305127324d, type: 3}
+  rainbowShard1: {fileID: 2693120251651244464, guid: 77ea682e439eaf942b7d899c1500ccf7, type: 3}
+  rainbowShard2: {fileID: 2342098747620781937, guid: a05394c17d38580498469e7b78e0bf97, type: 3}
+  rainbowShard3: {fileID: 468393158412082699, guid: dac23d953e1297b4b8c32b38e8cef890, type: 3}
+  rainbowShard4: {fileID: 3440725048660938532, guid: 39179d0af3e215b498f1ca6243fb954a, type: 3}
+  rainbowShard5: {fileID: 8327698839177639182, guid: 917c9cf8dd52d5b48a3ceaca3ffa485b, type: 3}
 --- !u!1 &2142328092
 GameObject:
   m_ObjectHideFlags: 0
@@ -3038,60 +3057,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142328092}
   m_CullTransparentMesh: 1
---- !u!1001 &2618540382584294952
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2082181480252661641, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2082181480252661641, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 2082181480252661641, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 2082181480252661641, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.06403385
-      objectReference: {fileID: 0}
-    - target: {fileID: 2082181480252661641, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2082181480252661641, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2082181480252661641, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2082181480252661641, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2082181480252661641, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2082181480252661641, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2082181480252661641, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2082181480252661647, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
-      propertyPath: m_Name
-      value: Boss
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}

@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     // Attack
     [SerializeField] private Bullet[] attackTypes;
-    //[SerializeField] private int rainbowFragments = 0;
+    [SerializeField] private int rainbowFragments = 0;
     int attackNumber = 0;
 
     private void Start()
@@ -55,6 +55,10 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "EnemyBullet")
         {
             Hurt();
+        }
+        if (other.gameObject.CompareTag("RainbowShard"))
+        {
+            rainbowFragments++;
         }
     }
     public void Hurt()
