@@ -10,7 +10,8 @@ public class Spawn : MonoBehaviour
     private Player player;
 
     public int spawnedEnemies; // are all enemies destroyed? wait until next wave
-    private bool isReady = false;
+    [SerializeField] private bool isReadyShard;
+     public bool isReady;
 
     [System.Serializable]
     public class EnemiesWave
@@ -49,6 +50,8 @@ public class Spawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isReady = true;
+        isReadyShard = false;
         spawnedEnemies = 0;
         //StartCoroutine(WaveCounter(waves[nextWave]));
         if (GameObject.Find("Player") != null)
@@ -63,12 +66,20 @@ public class Spawn : MonoBehaviour
             isReady = false;
             startNextWave();
         }
+        if (isReadyShard && spawnedEnemies == 0)
+        {
+            isReadyShard = false;
+            spawnShard(nextWave-1);
+        }
         yield return new WaitForSeconds(3);
-        isReady = true;
-        //print("NumberOfEnemy:" + spawnedEnemies+" isReady"+ isReady); tester
+        print("NumberOfEnemy:" + spawnedEnemies+" isReady"+ isReady+" isShardReady" + isReadyShard);
         StartCoroutine(CheckReadyToNextWave()); 
     }
-
+    void spawnShard(int shurdNumber)
+    {
+        Vector2 spawnPoint = new Vector2(0, topWall - 0.1f);
+        Instantiate(RainbowShards[shurdNumber], spawnPoint, Quaternion.identity);
+    }
     void startNextWave()
     {
 
@@ -91,6 +102,7 @@ public class Spawn : MonoBehaviour
             if(!wave.enemies[iteration].isGroup)
                 spawnPointPlace = spawnPointSwitch(wave.enemies[iteration].spawnPoint, wave.enemies[iteration].typeOfEnemy);
         }
+        isReadyShard = true;
     }
 
     private Vector2 spawnPointSwitch(int spawnPoint,int typeOfEnemy)
