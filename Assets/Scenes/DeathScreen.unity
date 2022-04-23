@@ -740,7 +740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: QUIT
+  m_text: MENU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 35aaf9e65d721014dbdce7703cfd43c8, type: 2}
   m_sharedMaterial: {fileID: 4579571266937228390, guid: 35aaf9e65d721014dbdce7703cfd43c8, type: 2}
@@ -1061,7 +1061,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 0}
-  SfxSlider: {fileID: 0}
 --- !u!114 &1642782540
 MonoBehaviour:
   m_ObjectHideFlags: 0
