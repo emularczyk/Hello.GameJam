@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4393359489559257593}
   - component: {fileID: 1346058124543727721}
   - component: {fileID: 8519132069481837804}
+  - component: {fileID: -5668095400171556438}
   m_Layer: 0
   m_Name: RainbowShard4
   m_TagString: RainbowShard
@@ -133,3 +134,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.234375, y: 0.40625}
   m_EdgeRadius: 0
+--- !u!114 &-5668095400171556438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440725048660938532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87408f2ce51c5b749918eb5508bf46fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -44,7 +44,6 @@ public class Enemy : MonoBehaviour
         if(other.gameObject.tag == "Blue")
         {
             freez += 1;
-
             Destroy(other.gameObject);
             Hurt(other.gameObject.GetComponent<Bullet>().dmg);
         }

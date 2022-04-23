@@ -6,6 +6,7 @@ using TMPro;
 public class Spawn : MonoBehaviour
 {
     [SerializeField] private List<GameObject> EnemiesList = new List<GameObject>();
+    [SerializeField] private List<GameObject> RainbowShards = new List<GameObject>();
     private Player player;
 
     public int spawnedEnemies; // are all enemies destroyed? wait until next wave
@@ -21,6 +22,7 @@ public class Spawn : MonoBehaviour
         public int spawnPoint;
         public bool isGroup;
     }
+
 
     [System.Serializable]
     public class Wave
