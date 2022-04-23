@@ -7,7 +7,8 @@ public class WaveTwo : MonoBehaviour
     private DogHutEnemy dogHutEnemy;
     private Spawn spawn;
     [SerializeField] private bool right;
-    private static bool waitAll = false; // static dotyczy tej klasy!
+    private static bool waitAllLeft = false; // static dotyczy tej klasy!
+    private static bool waitAllRight = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,18 +25,21 @@ public class WaveTwo : MonoBehaviour
     void Update()
     {
        rotate();
-       if(waitAll)
+       if (waitAllLeft)
+            dogHutEnemy.freezeMovement();
+    
+       if (waitAllRight)
             dogHutEnemy.freezeMovement();
     }
 
-    void rotate()
+void rotate()
     {
         if (right)
         {
             if ((transform.position.x < (spawn.leftWall - 3.3f)) && dogHutEnemy.invert == false)
             {
                 dogHutEnemy.invert = !dogHutEnemy.invert;
-                StartCoroutine(WaitAll());
+                StartCoroutine(WaitAllRight());
             }
         }
         else
@@ -43,14 +47,20 @@ public class WaveTwo : MonoBehaviour
             if ((transform.position.x > (spawn.rightWall + 3.3f)) && dogHutEnemy.invert == true)
             {
                 dogHutEnemy.invert = !dogHutEnemy.invert;
-                StartCoroutine(WaitAll());
+                StartCoroutine(WaitAllLeft());
             }
         }
     }
-    IEnumerator WaitAll()
+    IEnumerator WaitAllRight()
     {
-        yield return new WaitForSeconds(15);
-        waitAll=true;
+        yield return new WaitForSeconds(20);
+        waitAllRight=true;
+    }
+
+    IEnumerator WaitAllLeft()
+    {
+        yield return new WaitForSeconds(30);
+        waitAllLeft = true;
     }
 
 }
