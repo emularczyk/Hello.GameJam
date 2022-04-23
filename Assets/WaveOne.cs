@@ -12,9 +12,12 @@ public class WaveOne : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y < 3.5f)
-        {
-            enemy.FreezMovemnt();
-        } 
+        StartCoroutine(WaitTo(3));
+    }
+    IEnumerator WaitTo(int number)
+    {
+
+        yield return new WaitForSeconds(number);
+        enemy.FreezMovemnt();
     }
 }

@@ -167,9 +167,9 @@ MonoBehaviour:
   points: 100
   life: 8
   bullet: {fileID: 2310918843784445011, guid: a784d7171fd4b904f9f201e6a4289490, type: 3}
-  reload: 0.5
+  reload: 1
   breakTime: 3
-  booletSeries: 6
+  booletSeries: 3
   onSides: 0
   invert: 0
   anim: {fileID: 4999169490882636530}
