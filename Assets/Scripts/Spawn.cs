@@ -88,8 +88,8 @@ public class Spawn : MonoBehaviour
             spawnPoint =( typeOfEnemy % 4);
         switch (spawnPoint)
         {
-            case (1): spawnPointPlace = new Vector2(rightWall - 0.1f, Random.Range(bottomWall + 2, topWall - 2)); break;
-            case (2): spawnPointPlace = new Vector2(leftWall + 0.1f, Random.Range(bottomWall + 2, topWall - 2)); break;
+            case (1): spawnPointPlace = new Vector2(rightWall - 0.1f, Random.Range(bottomWall + 2, topWall - 2)); break; // fala 5
+            case (2): spawnPointPlace = new Vector2(leftWall + 0.1f, Random.Range(bottomWall + 2, topWall - 2)); break; // fala 5
             case (3): spawnPointPlace = new Vector2(Random.Range(leftWall + 0.1f, rightWall - 0.1f), bottomWall + 0.1f); break;
             case (4): spawnPointPlace = new Vector2(rightWall - 0.1f, topWall - 3.5f); break;
             case (5): spawnPointPlace = new Vector2(leftWall - 0.1f, topWall - 3.5f); break;
