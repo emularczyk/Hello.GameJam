@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 
     public Score score;
     [SerializeField] private int points;
+    private Spawn spawn;
 
     //private int receivedDamage; //musi siê odnosiæ do ataku gracza
     private bool isHit = false;
@@ -18,12 +19,13 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         score = GameObject.Find("GameManager").GetComponent<Score>();
+        spawn = GameObject.Find("GameManager").GetComponent<Spawn>();
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (11 < transform.position.y || transform.position.y < -6 || transform.position.x < -8 || transform.position.x > 8)
+        if  (transform.position.y > spawn.topWall || transform.position.y < spawn.bottomWall || transform.position.x < spawn.leftWall || transform.position.x > spawn.rightWall)
             Destroy(this.gameObject);
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -34,6 +36,7 @@ public class Enemy : MonoBehaviour
             Hurt();
         }
     }
+
     public void Hurt()
     {
         if (isHit == false)

@@ -34,7 +34,7 @@ public class DogHutEnemy : Enemy
 
     IEnumerator BreakWait()
     {
-        yield return new WaitForSeconds(breakTime);
+        yield return new WaitForSeconds(breakTime+Random.RandomRange(0f,1f));
         anim.SetBool("DogIn", true);
         StartCoroutine(Fire(booletSeries));
     }
@@ -56,5 +56,9 @@ public class DogHutEnemy : Enemy
         }
         anim.SetBool("DogIn", false);
         StartCoroutine(BreakWait());
+    }
+    public void FreezMovemnt()
+    {
+        speed = 0;
     }
 }

@@ -15,7 +15,7 @@ public class Spawn : MonoBehaviour
         public float frequency;
         public int typeOfEnemy;
         public int howMany;
-     //   public int spawnPoint;
+        public int spawnPoint;
         public bool isGroup;
     }
 
@@ -29,8 +29,13 @@ public class Spawn : MonoBehaviour
 
     [SerializeField] private Wave[] waves;
     [SerializeField] private TextMeshProUGUI waveText;
-    [SerializeField] private Animator waveAnimation
- ;
+    [SerializeField] private Animator waveAnimation;
+
+     public float topWall=12.5f;
+     public float bottomWall=-9;
+     public float rightWall=8;
+     public float leftWall=-8;
+
 
     //do testowania wybranych fal
     [SerializeField] private int nextWave;
@@ -52,44 +57,49 @@ public class Spawn : MonoBehaviour
         while (wave.enemies.Count > k)
         {
             yield return new WaitForSeconds((wave.enemies[k].delay));
-            StartCoroutine(SpawnEnemy(wave.enemies[k].howMany, wave.enemies[k].frequency, wave.enemies[k].typeOfEnemy, wave.enemies[k].isGroup));
+            StartCoroutine(SpawnEnemy(wave,k));
             k++;
         }
         yield return new WaitForSeconds(wave.timeBetweenWaves);
         if (nextWave < waves.Length)
             StartCoroutine(WaveCounter(waves[nextWave]));
     }
-    private Vector2 spawnPointSwitch(int typeOfEnemy)
-    {
-         Vector2 spawnPointPlace = new Vector2(Random.Range(-7.5f, 7.5f), 6.5f);
 
-        switch (typeOfEnemy)
-        {
-            case (1) :spawnPointPlace = new Vector2(7.9f, Random.Range(-4, 6.5f)); break;
-            case (2): spawnPointPlace = new Vector2(-7.9f, Random.Range(-4, 6.5f)); break;
-            case (3): spawnPointPlace = new Vector2(Random.Range(-6, 6), -5.5f); break;
-           /* case (5): spawnPointPlace = new Vector2(7.9f, 3.5f); break;
-            case (6): spawnPointPlace = new Vector2(-7.0f, 3.5f); break;*/
-        }
-        return spawnPointPlace;
-    }
 
-    IEnumerator SpawnEnemy(int howMany, float frequency, int typeOfEnemy,bool isGroup)
+    IEnumerator SpawnEnemy(Wave wave,int iteration)
     {
         int i = 0;
         Vector2 spawnPointPlace;
-        spawnPointPlace = spawnPointSwitch(typeOfEnemy%4);
-        while (i < howMany)
+        spawnPointPlace = spawnPointSwitch(wave.enemies[iteration].spawnPoint, wave.enemies[iteration].typeOfEnemy);
+        while (i < wave.enemies[iteration].howMany)
         {
 
-            Instantiate(EnemiesList[typeOfEnemy], spawnPointPlace, Quaternion.identity);
-            yield return new WaitForSeconds(frequency);
-            if(!isGroup)
-            spawnPointPlace = spawnPointSwitch(typeOfEnemy % 4);
+            Instantiate(EnemiesList[wave.enemies[iteration].typeOfEnemy], spawnPointPlace, Quaternion.identity);
+            yield return new WaitForSeconds(wave.enemies[iteration].frequency);
+            if(!wave.enemies[iteration].isGroup)
+                spawnPointPlace = spawnPointSwitch(wave.enemies[iteration].spawnPoint, wave.enemies[iteration].typeOfEnemy);
             i++;
         }
     }
-
+    private Vector2 spawnPointSwitch(int spawnPoint,int typeOfEnemy)
+    {
+        Vector2 spawnPointPlace;
+        if (spawnPoint == 0)
+            spawnPoint =( typeOfEnemy % 4);
+        switch (spawnPoint)
+        {
+            case (1): spawnPointPlace = new Vector2(rightWall - 0.1f, Random.Range(bottomWall + 2, topWall - 2)); break;
+            case (2): spawnPointPlace = new Vector2(leftWall + 0.1f, Random.Range(bottomWall + 2, topWall - 2)); break;
+            case (3): spawnPointPlace = new Vector2(Random.Range(leftWall + 0.1f, rightWall - 0.1f), bottomWall + 0.1f); break;
+            case (4): spawnPointPlace = new Vector2(rightWall - 0.1f, topWall - 3.5f); break;
+            case (5): spawnPointPlace = new Vector2(leftWall - 0.1f, topWall - 3.5f); break;
+            case (6): spawnPointPlace = new Vector2(0, topWall - 0.1f); break;
+            case (7): spawnPointPlace = new Vector2(-3, topWall - 0.1f); break;
+            case (8): spawnPointPlace = new Vector2(3, topWall - 0.1f); break;
+            default: spawnPointPlace = new Vector2(Random.Range(leftWall + 0.1f, rightWall - 0.1f), topWall - 0.1f); break;
+        }
+        return spawnPointPlace;
+    }
     private void WaveTextDisplay(string name)
     {
         waveText.text = name;
