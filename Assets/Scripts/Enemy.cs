@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour
             if (life < 1)
             {
                 score.UpdateScore(points);
+                spawn.spawnedEnemies--;
                 Destroy(this.gameObject);
             }
         }

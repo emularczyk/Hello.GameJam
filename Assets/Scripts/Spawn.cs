@@ -8,6 +8,9 @@ public class Spawn : MonoBehaviour
     [SerializeField] private List<GameObject> EnemiesList = new List<GameObject>();
     private Player player;
 
+    public int spawnedEnemies; // are all enemies destroyed? wait until next wave
+    private bool isReady = false;
+
     [System.Serializable]
     public class EnemiesWave
     {
@@ -44,11 +47,53 @@ public class Spawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(WaveCounter(waves[nextWave]));
+        spawnedEnemies = 0;
+        WaveCounter(waves[nextWave]);
+        //StartCoroutine(WaveCounter(waves[nextWave]));
         if (GameObject.Find("Player") != null)
             player = GameObject.Find("Player").GetComponent<Player>();
     }
 
+    void Update()
+    {
+        if (!isReady)
+        {
+            StartCoroutine(Wait());
+        }
+        startNextWave();
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(5);
+        isReady = true;
+        print(isReady);
+    }
+
+    void startNextWave()
+    {
+        if (isReady == true && nextWave < waves.Length && spawnedEnemies == 0) // WORKED ON
+        {
+            //isReady = false;
+            WaveCounter(waves[nextWave]);
+            //StartCoroutine(WaveCounter(waves[nextWave]));
+        }
+    }
+
+    private void WaveCounter (Wave wave)
+    {
+        isReady = false;
+        int k = 0;
+        nextWave++;
+        WaveTextDisplay(wave.name);
+        while (wave.enemies.Count > k)
+        {
+            StartCoroutine(SpawnEnemy(wave, k));
+            k++;
+        }
+    }
+
+/*
     IEnumerator WaveCounter(Wave wave)
     {
         int k = 0;
@@ -61,13 +106,15 @@ public class Spawn : MonoBehaviour
             k++;
         }
         yield return new WaitForSeconds(wave.timeBetweenWaves);
-        if (nextWave < waves.Length)
-            StartCoroutine(WaveCounter(waves[nextWave]));
     }
+    */
+
+    // ----------------------do tego miejsca grzebalam----------------------------------
 
 
     IEnumerator SpawnEnemy(Wave wave,int iteration)
     {
+        spawnedEnemies++;
         int i = 0;
         Vector2 spawnPointPlace;
         spawnPointPlace = spawnPointSwitch(wave.enemies[iteration].spawnPoint, wave.enemies[iteration].typeOfEnemy);
@@ -81,6 +128,7 @@ public class Spawn : MonoBehaviour
             i++;
         }
     }
+
     private Vector2 spawnPointSwitch(int spawnPoint,int typeOfEnemy)
     {
         Vector2 spawnPointPlace;
@@ -109,6 +157,7 @@ public class Spawn : MonoBehaviour
         }
         return spawnPointPlace;
     }
+
     private void WaveTextDisplay(string name)
     {
         waveText.text = name;

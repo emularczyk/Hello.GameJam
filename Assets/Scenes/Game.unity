@@ -2868,6 +2868,7 @@ MonoBehaviour:
   - {fileID: 8541614421346847557, guid: 376eea654dde1fd44a235c9881559d10, type: 3}
   - {fileID: 5092771761515112351, guid: ac5cc32b0017e14428f224f4f634b45c, type: 3}
   - {fileID: 5092771761515112351, guid: 471ca09967b1267428341e06446db223, type: 3}
+  spawnedEnemies: 0
   waves:
   - name: Wave 1
     enemies:
@@ -2889,7 +2890,7 @@ MonoBehaviour:
       howMany: 1
       spawnPoint: 8
       isGroup: 0
-    timeBetweenWaves: 20
+    timeBetweenWaves: 1
   - name: Wave 2
     enemies:
     - delay: 0
@@ -2980,13 +2981,16 @@ MonoBehaviour:
       spawnPoint: 8
       isGroup: 0
     timeBetweenWaves: 20
+  - name: Wave 6
+    enemies: []
+    timeBetweenWaves: 20
   waveText: {fileID: 1554741037}
   waveAnimation: {fileID: 1554741039}
   topWall: 6
   bottomWall: -6
   rightWall: 11
   leftWall: -11
-  nextWave: 3
+  nextWave: 0
 --- !u!114 &2025159926
 MonoBehaviour:
   m_ObjectHideFlags: 0
