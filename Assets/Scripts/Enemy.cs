@@ -35,16 +35,18 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.tag == "Bullet")
         {
             Destroy(other.gameObject);
-            Hurt();
+            Hurt(other.gameObject.GetComponent<Bullet>().dmg);
+        }
+        if (other.gameObject.tag == "Explosion")
+        {
+            Hurt(other.gameObject.GetComponent<Bullet>().dmg);
         }
     }
-
-    public void Hurt()
+        public void Hurt(int receivedDamage)
     {
         if (isHit == false)
         {
-            life--;
-            // life -= receivedDamage;
+            life-= receivedDamage;
             if (life < 1)
             {
                 score.UpdateScore(points);

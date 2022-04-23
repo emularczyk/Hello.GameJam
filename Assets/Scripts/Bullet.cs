@@ -5,10 +5,10 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private SpriteRenderer sprite;
-
+    public int dmg;
     public float speed;
 
-    void Start()
+    protected virtual void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
     }
