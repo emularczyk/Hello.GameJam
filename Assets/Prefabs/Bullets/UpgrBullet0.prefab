@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1586004059433272048}
   - component: {fileID: 8816965840347364475}
   - component: {fileID: 3195953960039093960}
-  - component: {fileID: 133132941340312656}
+  - component: {fileID: 4018026020247563602}
   m_Layer: 0
   m_Name: UpgrBullet0
   m_TagString: Bullet
@@ -145,7 +145,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &133132941340312656
+--- !u!114 &4018026020247563602
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8351326502760811988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5252f138abd594c41b9708bfbe6f7fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: dd4be9f30b2801c45b41a8908fb9f557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 8

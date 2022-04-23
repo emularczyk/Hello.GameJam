@@ -11,6 +11,10 @@ public class Player : MonoBehaviour
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private Rigidbody2D rb;
 
+
+    private int chage;
+    [SerializeField] private float rechargeTime;
+
     // Life and Knockdown
     [SerializeField] private float knockdown;
     private bool isHit = false;
@@ -25,35 +29,44 @@ public class Player : MonoBehaviour
     private void Start()
     {
         lifeVisible = GameObject.Find("GameManager").GetComponent<LifeSystem>();
+        StartCoroutine(chargeCannon());
     }
 
     private void Update()
     {
         movement();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (chage > 10 &&  Input.GetKeyDown(KeyCode.Space))
         {
+            Shoot(attackNumber+6);
+            chage = 0;
+        }
+        else if( Input.GetKeyDown(KeyCode.Space))
+        {
+            chage = 0;
             Shoot(attackNumber);
         }
     }
+
     private void ChageBoolet(int type)
     {
         attackNumber= type;
     }
-    private void Shoot(int attackNumber)
+    private void Shoot(int attackType)
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(attackTypes[attackNumber], transform.position, Quaternion.identity);
+            Instantiate(attackTypes[attackType], transform.position, Quaternion.identity);
         }
     }
-
+    IEnumerator chargeCannon()
+    {
+        yield return new WaitForSeconds(rechargeTime);
+        chage++;
+        StartCoroutine(chargeCannon());
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
-        {
-            Hurt();
-        }
-        if (other.gameObject.tag == "EnemyBullet")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyBullet")
         {
             Hurt();
         }
