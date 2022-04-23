@@ -2861,59 +2861,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemiesList:
-  - {fileID: 274076109649742638, guid: 6f4be280dc848ce4db4b6d81e9c14c49, type: 3}
-  - {fileID: 603475595203828488, guid: d9977425ef81a1b4cae56a3196d28f65, type: 3}
-  - {fileID: 4317225242296065465, guid: 3619e1083a96d2349a5ae82ca393d5b6, type: 3}
-  - {fileID: 2855144773387849469, guid: 40e6b72c65f160640a790c5843842014, type: 3}
-  - {fileID: 8541614421346847557, guid: 106e07fb97f44eb4297f8bae076c9592, type: 3}
-  - {fileID: 7557612200394901223, guid: df6f61d955be01b4aa19e205c3b172e2, type: 3}
-  - {fileID: 6473873992661440859, guid: 9c218d8d6706f0a46a19e24e45a98ac6, type: 3}
-  - {fileID: 1052970637699721652, guid: 633f2e137b87f47478a2491f481a39c9, type: 3}
-  - {fileID: 9140531270170691094, guid: 6fbb85dbe44c34b4f82c1d595b8a072b, type: 3}
-  - {fileID: 2082181480252661647, guid: 8d06ee88bd438b64cbe3cc5e66bfa71c, type: 3}
+  - {fileID: 5092771761515112351, guid: ce58075ec03edb240ab528f84cd7f9fc, type: 3}
   waves:
   - name: Wave 1
     enemies:
     - delay: 0
       frequency: 1
       typeOfEnemy: 0
-      howMany: 5
+      howMany: 1
+      spawnPoint: 6
       isGroup: 0
-    - delay: 10
+    - delay: 6
       frequency: 1
-      typeOfEnemy: 1
-      howMany: 5
+      typeOfEnemy: 0
+      howMany: 1
+      spawnPoint: 7
       isGroup: 0
-    - delay: 10
+    - delay: 3
       frequency: 1
-      typeOfEnemy: 2
-      howMany: 5
-      isGroup: 0
-    - delay: 10
-      frequency: 1
-      typeOfEnemy: 3
-      howMany: 5
+      typeOfEnemy: 0
+      howMany: 1
+      spawnPoint: 8
       isGroup: 0
     timeBetweenWaves: 20
-  - name: Wave 2
-    enemies:
-    - delay: 4
-      frequency: 1
-      typeOfEnemy: 1
-      howMany: 5
-      isGroup: 1
-    timeBetweenWaves: 5
-  - name: Wave 3
-    enemies:
-    - delay: 5
-      frequency: 1
-      typeOfEnemy: 9
-      howMany: 1
-      isGroup: 0
-    timeBetweenWaves: 5
   waveText: {fileID: 1554741037}
   waveAnimation: {fileID: 1554741039}
-  nextWave: 2
+  topWall: 6.5
+  bottomWall: -6.5
+  rightWall: 7
+  leftWall: -7
+  nextWave: 0
 --- !u!114 &2025159926
 MonoBehaviour:
   m_ObjectHideFlags: 0
