@@ -1543,17 +1543,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7642908844737577704, guid: c00f491a39a77d846a7913b4c4b0b3b7, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1477224713}
     - target: {fileID: 7642908844737577705, guid: c00f491a39a77d846a7913b4c4b0b3b7, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7642908844737577705, guid: c00f491a39a77d846a7913b4c4b0b3b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.37
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 7642908844737577705, guid: c00f491a39a77d846a7913b4c4b0b3b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.19
+      value: -4.11
       objectReference: {fileID: 0}
     - target: {fileID: 7642908844737577705, guid: c00f491a39a77d846a7913b4c4b0b3b7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1770,6 +1774,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456344549}
   m_CullTransparentMesh: 1
+--- !u!50 &1477224713 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7642908844737577706, guid: c00f491a39a77d846a7913b4c4b0b3b7, type: 3}
+  m_PrefabInstance: {fileID: 1229283904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1554741035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,6 +2743,7 @@ MonoBehaviour:
   - {fileID: 8541614421346847557, guid: 376eea654dde1fd44a235c9881559d10, type: 3}
   - {fileID: 5092771761515112351, guid: ac5cc32b0017e14428f224f4f634b45c, type: 3}
   - {fileID: 5092771761515112351, guid: 471ca09967b1267428341e06446db223, type: 3}
+  RainbowShards: []
   spawnedEnemies: 0
   waves:
   - name: Wave 1
@@ -2896,12 +2906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87408f2ce51c5b749918eb5508bf46fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rainbowShard0: {fileID: 6766959590495164598, guid: 9502be1e97b496045b47e6305127324d, type: 3}
-  rainbowShard1: {fileID: 2693120251651244464, guid: 77ea682e439eaf942b7d899c1500ccf7, type: 3}
-  rainbowShard2: {fileID: 2342098747620781937, guid: a05394c17d38580498469e7b78e0bf97, type: 3}
-  rainbowShard3: {fileID: 468393158412082699, guid: dac23d953e1297b4b8c32b38e8cef890, type: 3}
-  rainbowShard4: {fileID: 3440725048660938532, guid: 39179d0af3e215b498f1ca6243fb954a, type: 3}
-  rainbowShard5: {fileID: 8327698839177639182, guid: 917c9cf8dd52d5b48a3ceaca3ffa485b, type: 3}
 --- !u!1 &2142328092
 GameObject:
   m_ObjectHideFlags: 0
