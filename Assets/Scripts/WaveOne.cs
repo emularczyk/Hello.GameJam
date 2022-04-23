@@ -18,6 +18,6 @@ public class WaveOne : MonoBehaviour
     {
 
         yield return new WaitForSeconds(number);
-        enemy.FreezMovemnt();
+        enemy.freezeMovement();
     }
 }

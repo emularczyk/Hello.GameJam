@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int points;
     private Spawn spawn;
 
+    [SerializeField]  private float margines = 3f;
+
     //private int receivedDamage; //musi siê odnosiæ do ataku gracza
     private bool isHit = false;
 
@@ -25,7 +27,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if  (transform.position.y > spawn.topWall || transform.position.y < spawn.bottomWall || transform.position.x < spawn.leftWall || transform.position.x > spawn.rightWall)
+        if  (transform.position.y > spawn.topWall + margines || transform.position.y < spawn.bottomWall - margines || transform.position.x < spawn.leftWall - margines || transform.position.x > spawn.rightWall + margines)
             Destroy(this.gameObject);
     }
     private void OnTriggerEnter2D(Collider2D other)

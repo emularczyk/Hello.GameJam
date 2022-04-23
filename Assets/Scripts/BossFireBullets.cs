@@ -16,6 +16,8 @@ public class BossFireBullets : MonoBehaviour
     void Start()
     {
         InvokeRepeating("Fire", 0f, 2f); // fire every 2 seconds
+        InvokeRepeating("Fire", 0f, 1.5f);
+        InvokeRepeating("Fire", 0f, 1f);
     }
 
     private void Fire()

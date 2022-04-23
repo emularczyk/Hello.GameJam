@@ -15,7 +15,7 @@ public class BossBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moveSpeed = 8f;
+        moveSpeed = 5f; // speed bullets
     }
 
     // Update is called once per frame

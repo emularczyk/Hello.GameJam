@@ -15,15 +15,13 @@ public class DogHutEnemy : Enemy
 
     public DogHutEnemy(bool onSides,bool invert)
     {
-        this.onSides = onSides;
-        this.invert = invert;
+        this.onSides = onSides; // movement on sides
+        this.invert = invert; // from down to up (or from left to right, if you have on sides)
     }
-    // nie potrafiê odziedziczyæ i rozszerzyæ start()
+
     void Awake()
     {
         StartCoroutine(BreakWait());
-        if (invert)
-            speed *= -1;
     }
     // Update is called once per frame
     protected override void Update()
@@ -41,7 +39,7 @@ public class DogHutEnemy : Enemy
 
     private void Move()
     {   if(onSides)
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            transform.Translate(Vector2.left * speed*(invert?-1:1) * Time.deltaTime);
         else
             transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
@@ -57,8 +55,10 @@ public class DogHutEnemy : Enemy
         anim.SetBool("DogIn", false);
         StartCoroutine(BreakWait());
     }
-    public void FreezMovemnt()
+
+    public void freezeMovement()
     {
         speed = 0;
     }
+
 }
