@@ -2553,6 +2553,10 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7642908844737577704, guid: c00f491a39a77d846a7913b4c4b0b3b7, type: 3}
+      propertyPath: attackTypes.Array.data[5]
+      value: 
+      objectReference: {fileID: 61309170, guid: 09dab7d21d2ae60468c6f9d304f43341, type: 3}
+    - target: {fileID: 7642908844737577704, guid: c00f491a39a77d846a7913b4c4b0b3b7, type: 3}
       propertyPath: attackTypes.Array.data[6]
       value: 
       objectReference: {fileID: 4018026020247563602, guid: add76684258eb0844906028d2e5288a3, type: 3}
@@ -3795,6 +3799,12 @@ MonoBehaviour:
   - {fileID: 468393158412082699, guid: dac23d953e1297b4b8c32b38e8cef890, type: 3}
   - {fileID: 8327698839177639182, guid: 917c9cf8dd52d5b48a3ceaca3ffa485b, type: 3}
   - {fileID: 6766959590495164598, guid: 9502be1e97b496045b47e6305127324d, type: 3}
+  RainbowShardsTexts:
+  - {fileID: 220040596}
+  - {fileID: 2124887217}
+  - {fileID: 969897166}
+  - {fileID: 952611686}
+  - {fileID: 2075205406}
   fill: {fileID: 170478459}
   doggo: {fileID: 684655326}
   border: {fileID: 476392132}
@@ -3938,7 +3948,7 @@ MonoBehaviour:
     timeBetweenWaves: 0
   waveText: {fileID: 1554741037}
   waveAnimation: {fileID: 1554741039}
-  nextWave: 1
+  nextWave: 0
 --- !u!114 &2025159926
 MonoBehaviour:
   m_ObjectHideFlags: 0

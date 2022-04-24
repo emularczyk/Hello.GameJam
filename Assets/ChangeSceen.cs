@@ -9,6 +9,15 @@ public class ChangeSceen : MonoBehaviour
     {
         StartCoroutine(ChageScceen());
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
+
     IEnumerator ChageScceen()
     {
         yield return new WaitForSeconds(18);
