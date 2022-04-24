@@ -166,7 +166,7 @@ MonoBehaviour:
   score: {fileID: 0}
   points: 1000
   margines: 3
-  life: 300
+  life: 500
   currentLife: 0
   healthBar: {fileID: 0}
 --- !u!114 &2082181480252661646
@@ -182,12 +182,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  bulletsAmount: 6
+  bulletsAmount: 5
   breakTime: 3
-  fireTime: 3
+  fireTime: 2
   fireFrequency: 1
   fireAroundTime: 5
-  fireAroundFreguency: 0.1
+  fireAroundFreguency: 0.2
   startAngle: 90
   endAngle: 270
 --- !u!114 &769591491270823227

@@ -93,7 +93,7 @@ public class Spawn : MonoBehaviour
             spawnedEnemies = 0;
             isReadyShard = false;
             if(actualWave < 7 )
-                spawnShard(actualWave);
+                spawnShard(actualWave-1);
             else 
                 SceneManager.LoadScene("Credits");
         }

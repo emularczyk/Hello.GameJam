@@ -88,12 +88,12 @@ public class Player : MonoBehaviour
         }
         if (other.gameObject.CompareTag("RainbowShard"))
         {
-            rainbowFragments++;
             anim.SetTrigger("rainbow");
             if (rainbowFragments < 5)
             {
                 spawn.RainbowShardsTexts[rainbowFragments].gameObject.SetActive(false);
             }
+            rainbowFragments++;
         }
     }
     public void Hurt()
