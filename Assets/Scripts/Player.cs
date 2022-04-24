@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     [SerializeField] private int life; //as int
     [SerializeField] LifeSystem lifeVisible; //total player life seen on canvas
 
+    [SerializeField] Spawn spawn;
+
     // Attack
     [SerializeField] private Bullet[] attackTypes;
     [SerializeField] private int rainbowFragments = 0;
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
         animCharger = GameObject.Find("ChargedBoolets_0").GetComponent<Animator>();
         animCharger.SetInteger("color",0);
         anim=this.GetComponent<Animator>();
+        spawn = GameObject.Find("GameManager").GetComponent<Spawn>();
     }
 
     private void Update()
@@ -87,6 +90,10 @@ public class Player : MonoBehaviour
         {
             rainbowFragments++;
             anim.SetTrigger("rainbow");
+            if (rainbowFragments < 5)
+            {
+                spawn.RainbowShardsTexts[rainbowFragments].gameObject.SetActive(false);
+            }
         }
     }
     public void Hurt()

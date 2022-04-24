@@ -4,11 +4,13 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Spawn : MonoBehaviour
 {
     [SerializeField] private List<GameObject> EnemiesList = new List<GameObject>();
     [SerializeField] private List<GameObject> RainbowShards = new List<GameObject>();
+    [SerializeField] public List<GameObject> RainbowShardsTexts = new List<GameObject>();
 
     private Player player;
 
@@ -90,9 +92,9 @@ public class Spawn : MonoBehaviour
         {
             spawnedEnemies = 0;
             isReadyShard = false;
-            if(nextWave<7)
-                spawnShard(nextWave-1);
-            else
+            if(nextWave<7 && nextWave>0)
+                spawnShard(nextWave);
+            else if(nextWave > 0)
                 SceneManager.LoadScene("Credits");
         }
         yield return new WaitForSeconds(3);
@@ -101,13 +103,17 @@ public class Spawn : MonoBehaviour
     }
     IEnumerator isReadyShardWaint()
     {
-        yield return new WaitForSeconds(waves[nextWave-1].timeBetweenWaves);
+        yield return new WaitForSeconds(waves[nextWave].timeBetweenWaves);
         isReadyShard = true;
     }
     void spawnShard(int shurdNumber)
     {
         Vector2 spawnPoint = new Vector2(0, topWall - 0.1f);
         Instantiate(RainbowShards[shurdNumber], spawnPoint, Quaternion.identity);
+        if(shurdNumber < 5)
+        {
+            RainbowShardsTexts[shurdNumber].gameObject.SetActive(true);
+        }
     }
     void startNextWave()
     {
