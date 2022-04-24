@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Spawn : MonoBehaviour
 {
     [SerializeField] private List<GameObject> EnemiesList = new List<GameObject>();
     [SerializeField] private List<GameObject> RainbowShards = new List<GameObject>();
+
     private Player player;
 
 
@@ -88,7 +90,10 @@ public class Spawn : MonoBehaviour
         {
             spawnedEnemies = 0;
             isReadyShard = false;
-            spawnShard(nextWave-1);
+            if(nextWave<7)
+                spawnShard(nextWave-1);
+            else
+                SceneManager.LoadScene("Credits");
         }
         yield return new WaitForSeconds(3);
        print("NumberOfEnemy:" + spawnedEnemies+" isReady"+ isReady+" isShardReady" + isReadyShard); //test
@@ -96,7 +101,7 @@ public class Spawn : MonoBehaviour
     }
     IEnumerator isReadyShardWaint()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(waves[nextWave-1].timeBetweenWaves);
         isReadyShard = true;
     }
     void spawnShard(int shurdNumber)
