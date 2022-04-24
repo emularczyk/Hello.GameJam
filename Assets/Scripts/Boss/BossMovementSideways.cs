@@ -16,10 +16,11 @@ public class BossMovementSideways : MonoBehaviour
     [SerializeField] private float fireFrequency;
     [SerializeField] private int fireAroundTime;
     [SerializeField] private float fireAroundFreguency;
+    GameObject bul;
 
 
 
-    [SerializeField] private float startAngle = 90f, endAngle = 270f; // allows us to adjust the sector in which our bullets will be spread
+   [SerializeField] private float startAngle = 90f, endAngle = 270f; // allows us to adjust the sector in which our bullets will be spread
 
     private Vector2 bulletMoveDirection;
 
@@ -109,10 +110,10 @@ public class BossMovementSideways : MonoBehaviour
             Vector2 bulDir = (bulMoveVector - transform.position).normalized; // direction 
 
             GameObject bul = BulletPool.bulletPoolInstance.GetBullet(); // get the bullet from pool
-            bul.transform.position = transform.position; // set its position
-            bul.transform.rotation = transform.rotation; // set its rotation
-            bul.SetActive(true);
-            bul.GetComponent<BossBullet>().SetMoveDirection(bulDir);
+                bul.transform.position = transform.position; // set its position
+                bul.transform.rotation = transform.rotation; // set its rotation
+                bul.SetActive(true);
+                bul.GetComponent<BossBullet>().SetMoveDirection(bulDir);
 
             angle += angleStep;
         }
@@ -125,12 +126,16 @@ public class BossMovementSideways : MonoBehaviour
 
         Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f); // direction vector
         Vector2 bulDir = (bulMoveVector - transform.position).normalized; // direction 
+        {
+            bul = BulletPool.bulletPoolInstance.GetBullet(); // get the bullet from pool
+            bul.transform.position = transform.position; // set its position
+            bul.transform.rotation = transform.rotation; // set its rotation
+            bul.SetActive(true);
+            bul.GetComponent<BossBullet>().SetMoveDirection(bulDir);
+        }
+  
 
-        GameObject bul = BulletPool.bulletPoolInstance.GetBullet(); // get the bullet from pool
-        bul.transform.position = transform.position; // set its position
-        bul.transform.rotation = transform.rotation; // set its rotation
-        bul.SetActive(true);
-        bul.GetComponent<BossBullet>().SetMoveDirection(bulDir);
+      
 
         angle += 30f;
     }

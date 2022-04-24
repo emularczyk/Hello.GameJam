@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class Spawn : MonoBehaviour
 {

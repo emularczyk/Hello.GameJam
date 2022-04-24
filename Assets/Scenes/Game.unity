@@ -1935,8 +1935,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'normal attack: freezing attack
 
-    charged attack: freezes for a longer
-    time period'
+    charged attack: freezes for a long
+    time'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 35aaf9e65d721014dbdce7703cfd43c8, type: 2}
   m_sharedMaterial: {fileID: 4579571266937228390, guid: 35aaf9e65d721014dbdce7703cfd43c8, type: 2}
@@ -2071,10 +2071,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'normal attack: destroys enemy projectiles (but deals no damage to enemies)
+  m_text: 'normal attack:can destroys enemy projectiles
 
-    charged
-    attack: piercing attack'
+    charged attack: piercing
+    attack that destroys enemy projectiles'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 35aaf9e65d721014dbdce7703cfd43c8, type: 2}
   m_sharedMaterial: {fileID: 4579571266937228390, guid: 35aaf9e65d721014dbdce7703cfd43c8, type: 2}
@@ -3831,7 +3831,7 @@ MonoBehaviour:
       howMany: 1
       spawnPoint: 8
       isGroup: 0
-    timeBetweenWaves: 0
+    timeBetweenWaves: 5
   - name: Wave 2
     enemies:
     - delay: 0
@@ -3846,7 +3846,7 @@ MonoBehaviour:
       howMany: 5
       spawnPoint: 10
       isGroup: 1
-    timeBetweenWaves: 0
+    timeBetweenWaves: 10
   - name: Wave 3
     enemies:
     - delay: 0
@@ -3867,7 +3867,7 @@ MonoBehaviour:
       howMany: 7
       spawnPoint: 11
       isGroup: 0
-    timeBetweenWaves: 0
+    timeBetweenWaves: 25
   - name: Wave 4
     enemies:
     - delay: 0
@@ -3879,7 +3879,7 @@ MonoBehaviour:
     - delay: 16
       frequency: 6
       typeOfEnemy: 5
-      howMany: 8
+      howMany: 6
       spawnPoint: 18
       isGroup: 0
     - delay: 32
@@ -3900,8 +3900,23 @@ MonoBehaviour:
       howMany: 7
       spawnPoint: 16
       isGroup: 0
-    timeBetweenWaves: 0
+    timeBetweenWaves: 20
   - name: Wave 5
+    enemies:
+    - delay: 0
+      frequency: 2
+      typeOfEnemy: 8
+      howMany: 9
+      spawnPoint: 9
+      isGroup: 1
+    - delay: 0
+      frequency: 6
+      typeOfEnemy: 9
+      howMany: 6
+      spawnPoint: 19
+      isGroup: 0
+    timeBetweenWaves: 15
+  - name: Wave 6
     enemies:
     - delay: 0
       frequency: 6
@@ -3918,25 +3933,10 @@ MonoBehaviour:
     - delay: 4
       frequency: 8
       typeOfEnemy: 4
-      howMany: 5
+      howMany: 4
       spawnPoint: 8
       isGroup: 0
-    timeBetweenWaves: 0
-  - name: Wave 6
-    enemies:
-    - delay: 0
-      frequency: 2
-      typeOfEnemy: 8
-      howMany: 9
-      spawnPoint: 9
-      isGroup: 1
-    - delay: 0
-      frequency: 6
-      typeOfEnemy: 9
-      howMany: 6
-      spawnPoint: 19
-      isGroup: 0
-    timeBetweenWaves: 0
+    timeBetweenWaves: 15
   - name: Wave 7
     enemies:
     - delay: 0
@@ -3945,10 +3945,10 @@ MonoBehaviour:
       howMany: 1
       spawnPoint: 6
       isGroup: 0
-    timeBetweenWaves: 0
+    timeBetweenWaves: 15
   waveText: {fileID: 1554741037}
   waveAnimation: {fileID: 1554741039}
-  nextWave: 0
+  actualWave: 0
 --- !u!114 &2025159926
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,7 +32,6 @@ public class Enemy : MonoBehaviour
     {
         if  (transform.position.y > monitor.topWall + margines || transform.position.y < monitor.bottomWall - margines || transform.position.x < monitor.leftWall - margines || transform.position.x > monitor.rightWall + margines)
         {
-            spawn.spawnedEnemies--;
             Destroy(this.gameObject);
         }
    
@@ -63,11 +62,12 @@ public class Enemy : MonoBehaviour
             if (life < 1)
             {
                 score.UpdateScore(points);
-                if(!isDead)
-                     spawn.spawnedEnemies--;
                 Destroy(this.gameObject);
             }
         }
     }
-
+    private void OnDestroy()
+    {
+        spawn.spawnedEnemies--;
+    }
 }
