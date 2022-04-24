@@ -167,7 +167,7 @@ MonoBehaviour:
   score: {fileID: 0}
   points: 1000
   margines: 3
-  life: 500
+  life: 400
   currentLife: 0
   healthBar: {fileID: 0}
 --- !u!114 &2082181480252661646
