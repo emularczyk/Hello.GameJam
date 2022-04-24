@@ -152,5 +152,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 0
-  speed: 8
+  speed: 5
   explosion: {fileID: 4518470310007423020, guid: dd94b475144127c42bd71f65fac7d206, type: 3}

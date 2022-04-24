@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float freez=0;
     public Score score;
     [SerializeField] private int points;
+    private Monitor monitor;
     private Spawn spawn;
 
     [SerializeField]  private float margines = 3f;
@@ -21,13 +22,14 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         score = GameObject.Find("GameManager").GetComponent<Score>();
-        spawn = GameObject.Find("GameManager").GetComponent<Spawn>();
+        monitor = GameObject.Find("GameManager").GetComponent<Monitor>();
+        spawn= GameObject.Find("GameManager").GetComponent<Spawn>();
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-        if  (transform.position.y > spawn.topWall + margines || transform.position.y < spawn.bottomWall - margines || transform.position.x < spawn.leftWall - margines || transform.position.x > spawn.rightWall + margines)
+        if  (transform.position.y > monitor.topWall + margines || transform.position.y < monitor.bottomWall - margines || transform.position.x < monitor.leftWall - margines || transform.position.x > monitor.rightWall + margines)
         {
             spawn.spawnedEnemies--;
             Destroy(this.gameObject);

@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private SpriteRenderer sprite;
     public int dmg;
     public float speed;
+    [SerializeField] private float margines = 3f;
+    private Monitor monitor;
 
     protected virtual void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        monitor = GameObject.Find("GameManager").GetComponent<Monitor>();
     }
-    void Update()
+    protected virtual void FixedUpdate()
     {
         Move();
     }
-    private void Move()
+    protected virtual void Move()
     {
-        transform.Translate(Vector2.up * speed * Time.deltaTime / Time.timeScale);
-        if (transform.position.y > 6.41)
+        transform.Translate(Vector2.up * speed * Time.fixedDeltaTime / Time.timeScale);
+
+        if (transform.position.y > monitor.topWall + margines || transform.position.y < monitor.bottomWall - margines || transform.position.x < monitor.leftWall - margines || transform.position.x > monitor.rightWall + margines)
+        {
             Destroy(this.gameObject);
+        }
     }
 }

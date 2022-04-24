@@ -37,11 +37,11 @@ public class Spawn : MonoBehaviour
     [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private Animator waveAnimation;
 
-     public float topWall=12.5f;
-     public float bottomWall=-9;
-     public float rightWall=8;
-     public float leftWall=-8;
-
+     private float topWall;
+    private float bottomWall;
+    private float rightWall;
+    private float leftWall;
+    private Monitor monitor;
 
     //do testowania wybranych fal
     [SerializeField] private int nextWave;
@@ -57,6 +57,13 @@ public class Spawn : MonoBehaviour
         if (GameObject.Find("Player") != null)
             player = GameObject.Find("Player").GetComponent<Player>();
         StartCoroutine(CheckReadyToNextWave());
+
+        monitor=GetComponent<Monitor>();
+
+        topWall = monitor.topWall;
+        bottomWall = monitor.bottomWall;
+        rightWall = monitor.rightWall;
+        leftWall = monitor.leftWall;
     }
 
     IEnumerator CheckReadyToNextWave()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveTwo : MonoBehaviour
 {
     private DogHutEnemy dogHutEnemy;
-    private Spawn spawn;
+    private Monitor monitor;
     [SerializeField] private bool right;
     private static bool waitAllLeft = false; // static dotyczy tej klasy!
     private static bool waitAllRight = false;
@@ -14,7 +14,7 @@ public class WaveTwo : MonoBehaviour
     void Start()
     {
         dogHutEnemy = this.GetComponent<DogHutEnemy>();
-        spawn = GameObject.Find("GameManager").GetComponent<Spawn>();
+        monitor = GameObject.Find("GameManager").GetComponent<Monitor>();
         if (!right)
         {
             dogHutEnemy.invert = !dogHutEnemy.invert;
@@ -36,7 +36,7 @@ void rotate()
     {
         if (right)
         {
-            if ((transform.position.x < (spawn.leftWall - 3.3f)) && dogHutEnemy.invert == false)
+            if ((transform.position.x < (monitor.leftWall - 3.3f)) && dogHutEnemy.invert == false)
             {
                 dogHutEnemy.invert = !dogHutEnemy.invert;
                 StartCoroutine(WaitAllRight());
@@ -44,7 +44,7 @@ void rotate()
         }
         else
         {
-            if ((transform.position.x > (spawn.rightWall + 3.3f)) && dogHutEnemy.invert == true)
+            if ((transform.position.x > (monitor.rightWall + 3.3f)) && dogHutEnemy.invert == true)
             {
                 dogHutEnemy.invert = !dogHutEnemy.invert;
                 StartCoroutine(WaitAllLeft());
