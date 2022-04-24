@@ -15,6 +15,7 @@ public class UpgrBullet5 :Bullet
      protected override void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        base.Start();
     }
     protected override void Move()
     {

@@ -132,10 +132,11 @@ public class Spawn : MonoBehaviour
             case (11): spawnPointPlace = new Vector2(-6, topWall - 0.1f); break; // fala 3
             case (12): spawnPointPlace = new Vector2(6, topWall - 0.3f); break; // fala 3
             case (13): spawnPointPlace = new Vector2(0, topWall - 0.1f); break; // fala 3
-            case (14): spawnPointPlace = new Vector2(7, topWall - 0.3f); break; // fala 4
-            case (15): spawnPointPlace = new Vector2(4, bottomWall + 0.1f); break; // fala 4
-            case (16): spawnPointPlace = new Vector2(-3, bottomWall + 0.01f); break; // fala 4
-            case (17): spawnPointPlace = new Vector2(1, topWall - 0.1f); break; // fala 4
+            case (14): spawnPointPlace = new Vector2(8.5f, topWall - 0.3f); break; // fala 4
+            case (15): spawnPointPlace = new Vector2(4.2f, bottomWall + 0.1f); break; // fala 4
+            case (16): spawnPointPlace = new Vector2(-4.2f, bottomWall + 0.01f); break; // fala 4
+            case (17): spawnPointPlace = new Vector2(0, topWall - 0.1f); break; // fala 4
+            case (18): spawnPointPlace = new Vector2(-8.5f, topWall - 0.1f); break; // fala 4
             default: spawnPointPlace = new Vector2(Random.Range(leftWall + 0.1f, rightWall - 0.1f), topWall - 0.1f); break;
         }
         return spawnPointPlace;

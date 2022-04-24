@@ -167,7 +167,7 @@ MonoBehaviour:
   score: {fileID: 0}
   points: 100
   margines: 3
-  life: 20
+  life: 30
   bullet: {fileID: 2310918843784445011, guid: a784d7171fd4b904f9f201e6a4289490, type: 3}
   reload: 1
   breakTime: 3

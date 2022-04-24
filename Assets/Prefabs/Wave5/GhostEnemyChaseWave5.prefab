@@ -186,12 +186,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f318b319639924492cf180df3802c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.5
   freez: 0
   score: {fileID: 0}
   points: 50
   margines: 3
-  life: 8
+  life: 10
   player: {fileID: 0}
   sinFreguency: 0
   sinAmplitude: 0

@@ -8,8 +8,10 @@ public class tripplebulle : Bullet
     [SerializeField] private GameObject bullet;
     protected override void Start()
     {
+        base.Start();
         Instantiate(bullet, transform.position, Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + 30));
         Instantiate(bullet, transform.position, Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z - 30));
+
     }
 
 }

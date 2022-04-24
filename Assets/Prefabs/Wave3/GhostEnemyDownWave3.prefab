@@ -190,7 +190,7 @@ MonoBehaviour:
   score: {fileID: 0}
   points: 50
   margines: 3
-  life: 8
+  life: 10
   player: {fileID: 0}
   sinFreguency: 1
   sinAmplitude: 80
