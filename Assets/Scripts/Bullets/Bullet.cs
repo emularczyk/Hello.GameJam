@@ -20,7 +20,6 @@ public class Bullet : MonoBehaviour
     protected virtual void Move()
     {
         transform.Translate(Vector2.up * speed * Time.fixedDeltaTime / Time.timeScale);
-
         if (transform.position.y > monitor.topWall + margines || transform.position.y < monitor.bottomWall - margines || transform.position.x < monitor.leftWall - margines || transform.position.x > monitor.rightWall + margines)
         {
             Destroy(this.gameObject);

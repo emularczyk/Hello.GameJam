@@ -30,7 +30,6 @@ public class Spawn : MonoBehaviour
     {
         public string name;
         public List<EnemiesWave> enemies = new List<EnemiesWave>();
-        public float timeBetweenWaves;
     }
 
     [SerializeField] private Wave[] waves;

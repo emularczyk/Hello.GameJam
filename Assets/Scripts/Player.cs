@@ -100,6 +100,7 @@ public class Player : MonoBehaviour
                 Destroy(this.gameObject);
             }
             StartCoroutine(ResetPlayer());
+
             lifeVisible.UpdateLife(life);
         }
     }
@@ -141,5 +142,7 @@ public class Player : MonoBehaviour
             transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
         }
     }
+
+
 
 }

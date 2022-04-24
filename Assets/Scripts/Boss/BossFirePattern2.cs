@@ -12,7 +12,7 @@ public class BossFirePattern2 : MonoBehaviour
         InvokeRepeating("Fire", 0f, 0.1f);
     }
 
-    private void Fire()
+    private void FireAround()
     {
         // for reach of the bullets:
         float bulDirX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
