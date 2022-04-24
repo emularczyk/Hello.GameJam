@@ -5,7 +5,7 @@ using UnityEngine;
 public class Boss : Enemy
 {
     public int currentLife;
-    public BossHealthBar healthBar;
+    [SerializeField] public BossHealthBar healthBar;
 
     protected override void Start()
     {

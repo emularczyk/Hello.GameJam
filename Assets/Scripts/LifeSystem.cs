@@ -15,18 +15,6 @@ public class LifeSystem : MonoBehaviour
     [SerializeField] private Image heartEmpty2;
     [SerializeField] private Image heartEmpty3;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void UpdateLife(int lives)
     {
         if (lives == 2)

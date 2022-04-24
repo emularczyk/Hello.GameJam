@@ -67,8 +67,9 @@ public class Spawn : MonoBehaviour
 
     IEnumerator CheckReadyToNextWave()
     {
-        if (isReady && nextWave < waves.Length && spawnedEnemies == 0)
+        if (isReady && nextWave < waves.Length && spawnedEnemies <1)
         {
+            spawnedEnemies = 0;
             isReady = false;
             startNextWave();
         }

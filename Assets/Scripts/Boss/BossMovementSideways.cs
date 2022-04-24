@@ -55,7 +55,7 @@ public class BossMovementSideways : MonoBehaviour
     }
     IEnumerator FazeOne()
     {
-        switch(Random.RandomRange(0, 2))
+        switch(Random.Range(0, 2))
         {
             case (0):
                 InvokeRepeating("Fire", 0f, fireFrequency);
