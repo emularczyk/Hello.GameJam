@@ -54,7 +54,7 @@ public class Spawn : MonoBehaviour
     private Monitor monitor;
 
     //do testowania wybranych fal
-    [SerializeField] private int nextWave;
+    [SerializeField] private int actualWave;
 
 
     // Start is called before the first frame update
@@ -81,7 +81,7 @@ public class Spawn : MonoBehaviour
 
     IEnumerator CheckReadyToNextWave()
     {
-        if (isReady && nextWave < waves.Length && spawnedEnemies <=0)
+        if (isReady && actualWave < waves.Length && spawnedEnemies <=0)
         {
             spawnedEnemies = 0;
             isReady = false;
@@ -92,9 +92,9 @@ public class Spawn : MonoBehaviour
         {
             spawnedEnemies = 0;
             isReadyShard = false;
-            if(nextWave<7 && nextWave>0)
-                spawnShard(nextWave);
-            else if(nextWave > 0)
+            if(actualWave < 7 )
+                spawnShard(actualWave);
+            else 
                 SceneManager.LoadScene("Credits");
         }
         yield return new WaitForSeconds(3);
@@ -103,7 +103,7 @@ public class Spawn : MonoBehaviour
     }
     IEnumerator isReadyShardWaint()
     {
-        yield return new WaitForSeconds(waves[nextWave].timeBetweenWaves);
+        yield return new WaitForSeconds(waves[actualWave].timeBetweenWaves);
         isReadyShard = true;
     }
     void spawnShard(int shurdNumber)
@@ -118,12 +118,12 @@ public class Spawn : MonoBehaviour
     void startNextWave()
     {
 
-        WaveTextDisplay((waves[nextWave].name));
-        for(int i=0;i< waves[nextWave].enemies.Count;i++)
+        WaveTextDisplay((waves[actualWave].name));
+        for(int i=0;i< waves[actualWave].enemies.Count;i++)
         {
-            StartCoroutine(SpawnEnemy(waves[nextWave], i));
+            StartCoroutine(SpawnEnemy(waves[actualWave], i));
         }
-        nextWave++;
+        actualWave++;
     }
     IEnumerator SpawnEnemy(Wave wave,int iteration)
     {

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ChangeSceen : MonoBehaviour
 {
+    [SerializeField] private string sceen;
     void Start()
     {
         StartCoroutine(ChageScceen());
@@ -21,7 +22,7 @@ public class ChangeSceen : MonoBehaviour
     IEnumerator ChageScceen()
     {
         yield return new WaitForSeconds(18);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(sceen,LoadSceneMode.Single);
     }
 
 }
