@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected int points;
     private Monitor monitor;
     protected Spawn spawn;
+    bool isDead;
 
     [SerializeField]  private float margines = 3f;
 
@@ -62,7 +63,8 @@ public class Enemy : MonoBehaviour
             if (life < 1)
             {
                 score.UpdateScore(points);
-                spawn.spawnedEnemies--;
+                if(!isDead)
+                     spawn.spawnedEnemies--;
                 Destroy(this.gameObject);
             }
         }

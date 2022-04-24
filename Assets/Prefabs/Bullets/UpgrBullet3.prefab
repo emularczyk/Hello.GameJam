@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9afaa18f671204398b50eeef128922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 6
+  dmg: 10
   speed: 7
-  freez: 5
+  margines: 3
+  freez: 6

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Spawn : MonoBehaviour
 {
@@ -9,9 +10,14 @@ public class Spawn : MonoBehaviour
     [SerializeField] private List<GameObject> RainbowShards = new List<GameObject>();
     private Player player;
 
-    public int spawnedEnemies; // are all enemies destroyed? wait until next wave
-    [SerializeField] private bool isReadyShard;
-     public bool isReady;
+
+    [SerializeField] private Image fill;
+    [SerializeField] private Image doggo;
+    [SerializeField] private Image border;
+
+    public  int  spawnedEnemies; // are all enemies destroyed? wait until next wave
+    private bool isReadyShard;
+    public bool isReady;
 
     [System.Serializable]
     public class EnemiesWave
@@ -30,6 +36,7 @@ public class Spawn : MonoBehaviour
     {
         public string name;
         public List<EnemiesWave> enemies = new List<EnemiesWave>();
+        public int timeBetweenWaves;
     }
 
     [SerializeField] private Wave[] waves;
@@ -63,24 +70,34 @@ public class Spawn : MonoBehaviour
         bottomWall = monitor.bottomWall;
         rightWall = monitor.rightWall;
         leftWall = monitor.leftWall;
+        doggo.enabled = false;
+        fill.enabled = false;
+        border.enabled = false;
     }
 
     IEnumerator CheckReadyToNextWave()
     {
-        if (isReady && nextWave < waves.Length && spawnedEnemies <1)
+        if (isReady && nextWave < waves.Length && spawnedEnemies <=0)
         {
             spawnedEnemies = 0;
             isReady = false;
+            StartCoroutine(isReadyShardWaint());
             startNextWave();
         }
-        if (isReadyShard && spawnedEnemies == 0)
+        if (isReadyShard && spawnedEnemies <= 0)
         {
+            spawnedEnemies = 0;
             isReadyShard = false;
             spawnShard(nextWave-1);
         }
         yield return new WaitForSeconds(3);
        print("NumberOfEnemy:" + spawnedEnemies+" isReady"+ isReady+" isShardReady" + isReadyShard); //test
         StartCoroutine(CheckReadyToNextWave()); 
+    }
+    IEnumerator isReadyShardWaint()
+    {
+        yield return new WaitForSeconds(5);
+        isReadyShard = true;
     }
     void spawnShard(int shurdNumber)
     {
@@ -109,7 +126,6 @@ public class Spawn : MonoBehaviour
             if(!wave.enemies[iteration].isGroup)
                 spawnPointPlace = spawnPointSwitch(wave.enemies[iteration].spawnPoint, wave.enemies[iteration].typeOfEnemy);
         }
-        isReadyShard = true;
     }
 
     private Vector2 spawnPointSwitch(int spawnPoint,int typeOfEnemy)
@@ -124,8 +140,8 @@ public class Spawn : MonoBehaviour
             case (3): spawnPointPlace = new Vector2(Random.Range(leftWall + 0.1f, rightWall - 0.1f), bottomWall + 0.1f); break;
             case (4): spawnPointPlace = new Vector2(rightWall - 0.1f, topWall - 3.5f); break;
             case (5): spawnPointPlace = new Vector2(leftWall - 0.1f, topWall - 3.5f); break;
-            case (6): spawnPointPlace = new Vector2(0, topWall - 0.1f); break;
-            case (7): spawnPointPlace = new Vector2(-3, topWall - 0.1f); break;
+            case (6): spawnPointPlace = new Vector2(0, topWall +1); break;//fala1
+            case (7): spawnPointPlace = new Vector2(-3, topWall +1); break;
             case (8): spawnPointPlace = new Vector2(3, topWall - 0.1f); break;
             case (9): spawnPointPlace = new Vector2(rightWall - 0.2f, topWall - 2.5f); break; // fala 2
             case (10): spawnPointPlace = new Vector2(leftWall + 0.2f, topWall - 5.5f); break; // fala 2
@@ -137,7 +153,7 @@ public class Spawn : MonoBehaviour
             case (16): spawnPointPlace = new Vector2(-4.2f, bottomWall + 0.01f); break; // fala 4
             case (17): spawnPointPlace = new Vector2(0, topWall - 0.1f); break; // fala 4
             case (18): spawnPointPlace = new Vector2(-8.5f, topWall - 0.1f); break; // fala 4
-            case (19): spawnPointPlace = new Vector2(rightWall - 0.1f, topWall - 6.5f); break;
+            case (19): spawnPointPlace = new Vector2(rightWall - 0.1f, topWall - 6.5f); break;//boss
             default: spawnPointPlace = new Vector2(Random.Range(leftWall + 0.1f, rightWall - 0.1f), topWall - 0.1f); break;
         }
         return spawnPointPlace;

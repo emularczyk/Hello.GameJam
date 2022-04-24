@@ -10,7 +10,7 @@ public class BossMovementSideways : MonoBehaviour
     private float angle = 0f;
     [SerializeField] private int bulletsAmount = 10;
 
-
+    private Animator anim;
     [SerializeField] private int breakTime;
     [SerializeField] private int fireTime;
     [SerializeField] private float fireFrequency;
@@ -29,6 +29,8 @@ public class BossMovementSideways : MonoBehaviour
         moveSpeed = 2f;
         moveRight = true;
         moveDown = true;
+        anim = this.GetComponent<Animator>();
+        anim.SetBool("Enter",true);
     }
     // Update is called once per frame
     void Update()
@@ -46,9 +48,10 @@ public class BossMovementSideways : MonoBehaviour
     private void MoveDown()
     {
         transform.position = new Vector2(transform.position.x, transform.position.y - moveSpeed/2 * Time.deltaTime);
-        if (transform.position.y <3.5f)
+        if (transform.position.y <2.5)
         {
             StartCoroutine(FazeOne());
+            anim.SetBool("Enter", false);
             moveDown = false;
         }
  
