@@ -160,6 +160,8 @@ MonoBehaviour:
   points: 1000
   margines: 3
   life: 300
+  currentLife: 0
+  healthBar: {fileID: 0}
 --- !u!114 &2082181480252661646
 MonoBehaviour:
   m_ObjectHideFlags: 0

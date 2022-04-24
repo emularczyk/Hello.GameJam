@@ -7,19 +7,19 @@ public class Enemy : MonoBehaviour
     public float speed;
     [SerializeField] protected float freez=0;
     public Score score;
-    [SerializeField] private int points;
+    [SerializeField] protected int points;
     private Monitor monitor;
-    private Spawn spawn;
+    protected Spawn spawn;
 
     [SerializeField]  private float margines = 3f;
 
     //private int receivedDamage; //musi siê odnosiæ do ataku gracza
-    private bool isHit = false;
+    protected bool isHit = false;
 
-    [SerializeField] private int life;
+    [SerializeField] protected int life;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         score = GameObject.Find("GameManager").GetComponent<Score>();
         monitor = GameObject.Find("GameManager").GetComponent<Monitor>();
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
             Hurt(other.gameObject.GetComponent<Bullet>().dmg);
         }
     }
-        public void Hurt(int receivedDamage)
+        protected virtual void Hurt(int receivedDamage)
     {
         if (isHit == false)
         {
