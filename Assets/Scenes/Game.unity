@@ -3027,7 +3027,7 @@ MonoBehaviour:
   bottomWall: -6
   rightWall: 11
   leftWall: -11
-  nextWave: 2
+  nextWave: 0
 --- !u!114 &2025159926
 MonoBehaviour:
   m_ObjectHideFlags: 0
