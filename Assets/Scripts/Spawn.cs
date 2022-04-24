@@ -78,7 +78,7 @@ public class Spawn : MonoBehaviour
             spawnShard(nextWave-1);
         }
         yield return new WaitForSeconds(3);
-       // print("NumberOfEnemy:" + spawnedEnemies+" isReady"+ isReady+" isShardReady" + isReadyShard); //test
+       print("NumberOfEnemy:" + spawnedEnemies+" isReady"+ isReady+" isShardReady" + isReadyShard); //test
         StartCoroutine(CheckReadyToNextWave()); 
     }
     void spawnShard(int shurdNumber)
@@ -136,6 +136,7 @@ public class Spawn : MonoBehaviour
             case (16): spawnPointPlace = new Vector2(-4.2f, bottomWall + 0.01f); break; // fala 4
             case (17): spawnPointPlace = new Vector2(0, topWall - 0.1f); break; // fala 4
             case (18): spawnPointPlace = new Vector2(-8.5f, topWall - 0.1f); break; // fala 4
+            case (19): spawnPointPlace = new Vector2(rightWall - 0.1f, topWall - 6.5f); break;
             default: spawnPointPlace = new Vector2(Random.Range(leftWall + 0.1f, rightWall - 0.1f), topWall - 0.1f); break;
         }
         return spawnPointPlace;

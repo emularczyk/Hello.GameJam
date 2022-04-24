@@ -83,11 +83,25 @@ public class GhostEnemy : Enemy
     void moveDownSin()//freguency=1,amplitude=50
     {
         Vector2 pos = transform.position;
-        float sin = Mathf.Sin(pos.y* sinFreguency)*sinAmplitude;
-        if (sinInverted)
-            sin *= -1;
-        pos.x = ourX+sin* Time.fixedDeltaTime;
-        pos.y -= speed * Time.fixedDeltaTime;
+   
+        if (!onSides)
+        {
+            float sin = Mathf.Sin(pos.y * sinFreguency) * sinAmplitude;
+            if (sinInverted)
+                sin *= -1;
+            pos.x = ourX + sin * Time.fixedDeltaTime;
+            pos.y -= speed * Time.fixedDeltaTime;
+        }
+        else
+        {
+            float sin = Mathf.Sin(pos.x * sinFreguency) * sinAmplitude;
+            if (sinInverted)
+                sin *= -1;
+            pos.y = ourY + sin * Time.fixedDeltaTime;
+            pos.x -= speed * Time.fixedDeltaTime;
+            
+        }
+
         transform.position = pos;
     }
 }
