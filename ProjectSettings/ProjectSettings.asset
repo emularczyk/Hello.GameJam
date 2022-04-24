@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: Nameless Team
   productName: Space Odyssey
-  defaultCursor: {fileID: 2800000, guid: 0b9b1fc110ac86b41a9398086f6ea304, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 4d3da78668b101f4a9b2de0f8d770ccc, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -271,7 +271,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: ffcf32c744e16774f87209d65c7e876a, type: 3}
+      m_Icon: {fileID: 2800000, guid: bad754121000ff140bd8db688819c490, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
