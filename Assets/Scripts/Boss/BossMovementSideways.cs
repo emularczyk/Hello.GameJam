@@ -8,7 +8,7 @@ public class BossMovementSideways : MonoBehaviour
     private bool moveRight;
     private bool moveDown;
     private float angle = 0f;
-    [SerializeField] private int bulletsAmount = 10;
+    [SerializeField] private int bulletsAmount;
 
     private Animator anim;
     [SerializeField] private int breakTime;
@@ -16,7 +16,7 @@ public class BossMovementSideways : MonoBehaviour
     [SerializeField] private float fireFrequency;
     [SerializeField] private int fireAroundTime;
     [SerializeField] private float fireAroundFreguency;
-    GameObject bul;
+
 
 
 
@@ -121,22 +121,18 @@ public class BossMovementSideways : MonoBehaviour
     private void FireAround()
     {
         // for reach of the bullets:
-        float bulDirX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
-        float bulDirY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
+        float bulDirX2 = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
+        float bulDirY2 = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
 
-        Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f); // direction vector
-        Vector2 bulDir = (bulMoveVector - transform.position).normalized; // direction 
+        Vector3 bulMoveVector2 = new Vector3(bulDirX2, bulDirY2, 0f); // direction vector
+        Vector2 bulDir2 = (bulMoveVector2 - transform.position).normalized; // direction 
         {
-            bul = BulletPool.bulletPoolInstance.GetBullet(); // get the bullet from pool
-            bul.transform.position = transform.position; // set its position
-            bul.transform.rotation = transform.rotation; // set its rotation
-            bul.SetActive(true);
-            bul.GetComponent<BossBullet>().SetMoveDirection(bulDir);
+            GameObject blu2 = BulletPool.bulletPoolInstance.GetBullet(); // get the bullet from pool
+            blu2.transform.position = transform.position; // set its position
+            blu2.transform.rotation = transform.rotation; // set its rotation
+            blu2.SetActive(true);
+            blu2.GetComponent<BossBullet>().SetMoveDirection(bulDir2);
         }
-  
-
-      
-
         angle += 30f;
     }
 }

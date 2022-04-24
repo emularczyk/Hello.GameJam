@@ -3948,7 +3948,7 @@ MonoBehaviour:
     timeBetweenWaves: 15
   waveText: {fileID: 1554741037}
   waveAnimation: {fileID: 1554741039}
-  actualWave: 0
+  actualWave: 6
 --- !u!114 &2025159926
 MonoBehaviour:
   m_ObjectHideFlags: 0

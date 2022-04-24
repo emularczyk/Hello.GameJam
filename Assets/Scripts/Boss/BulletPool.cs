@@ -8,7 +8,7 @@ public class BulletPool : MonoBehaviour
 
     [SerializeField]
     private GameObject pooledBullet; // represents particular bullet, which is put to the pool
-   // private bool notEnoughBulletsInPool = true;
+    private bool notEnoughBulletsInPool = true;
 
     private List<GameObject> bullets;
 
@@ -36,7 +36,7 @@ public class BulletPool : MonoBehaviour
                 }
             }
         }
-        else // when scene has just started or all of them are used at the moment
+        if(notEnoughBulletsInPool)// when scene has just started or all of them are used at the moment
         {
             GameObject bul = Instantiate(pooledBullet); // we add some bullets to the pool
             bul.SetActive(false); // set it to inactive state
